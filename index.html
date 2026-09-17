@@ -179,7 +179,7 @@
 <figcaption><span class="scene-label">讀書會比喻</span>LoRA 像課本不動、只貼便利貼。特徵萃取是課本不動、只寫最後的答案卷。全面微調是整本課本重寫。</figcaption>
 </figure>
 <p><span class="badge">LoRA：跨科考點（科目三指引外，115-1 已考）</span></p>
-<div class="grid"><article class="card"><div class="kicker">凍結 · 特徵萃取</div><h3>Feature Extraction</h3><p>凍結既有模型權重，取出特徵；只訓練後面新接的輸出層。</p><p><mark>既有權重不更新</mark><br>→ 115-1 Q42。</p></article><article class="card"><div class="kicker">全面更新</div><h3>Full Fine-tuning</h3><p>更新整個預訓練模型的權重，以適應新任務。</p><p>可調整範圍大，訓練記憶體與成本通常較高。</p></article><article class="card dark"><div class="kicker">低秩旁路</div><h3>LoRA</h3><p>凍結原權重，只訓練新增的<mark>低秩 A / B</mark>矩陣。</p><p>rank 高：適應容量較大、成本較高。<br>rank 低：較省資源、容量受限。</p></article></div>
+<div class="grid"><article class="card"><div class="kicker">凍結 · 特徵萃取</div><h3>Feature Extraction</h3><p>凍結既有模型權重，取出特徵；只訓練後面新接的輸出層。</p><p><mark>既有權重不更新</mark><br>→ 115-1 Q42。</p></article><article class="card"><div class="kicker">全面更新</div><h3>Full Fine-tuning</h3><p>更新整個預訓練模型的權重，以適應新任務。</p><p>可調整範圍大，訓練記憶體與成本通常較高。</p></article><article class="card dark"><div class="kicker">低秩旁路</div><h3>LoRA</h3><p>凍結原權重，只訓練新增的<mark>低秩 A / B</mark>矩陣。</p><p>rank 高：適應能力較強、成本較高。<br>rank 低：較省資源、適應能力受限。</p></article></div>
 <div class="line-diagram">
 <svg class="tuning-diagram" viewBox="0 0 700 420" role="img" aria-label="特徵萃取：既有模型上鎖，後接可訓練輸出層；全面微調：模型開鎖；LoRA：既有模型上鎖，旁接可訓練 A·B 低秩旁路">
 <g fill="var(--ink)" font-size="20"><text x="20" y="66">特徵萃取</text><text x="20" y="186">全面微調</text><text x="20" y="306">LoRA</text></g>
@@ -198,7 +198,7 @@
 <text x="336" y="389" text-anchor="middle" fill="var(--ink)" font-size="20">A·B</text><text x="500" y="388" fill="var(--green)" font-size="16">只訓練細旁路</text>
 </svg>
 </div>
-<p class="warning">⚠️ Q35 的GPU 記憶體已近上限：公告選「降低 rank、套用更多層，保持可訓練參數總量」；不是一律加大 rank，實務上還是要實際量品質和 GPU 記憶體用量。</p>
+<p class="warning">⚠️ Q35 的GPU 記憶體已近上限：公告選「降低 rank、套用更多層，保持可訓練參數總量」；不是一律加大 rank，實務上還是要實際測過品質和 GPU 記憶體用量。</p>
 </div>
 <aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>凍結既有權重作特徵 → <strong>Feature Extraction</strong>；凍結＋訓練低秩旁路 → <strong>LoRA</strong>。</p></aside>
 </div></section>
@@ -211,10 +211,10 @@
 <figcaption><span class="scene-label">讀書會比喻</span>RAG 像開書考：先翻資料，再作答，不靠硬背。</figcaption>
 </figure>
 <p><span class="badge">RAG：跨科考點（科目三指引外，115-1 已考）</span></p>
-<div class="flow"><article class="card"><div class="kicker">01 · RETRIEVE</div><h3>檢索相關資料</h3><p>依問題找出知識庫片段。</p></article><span class="arrow-inline">→</span><article class="card"><div class="kicker">02 · AUGMENT</div><h3>拼進 prompt</h3><p>把問題與檢索內容一起提供。</p></article><span class="arrow-inline">→</span><article class="card"><div class="kicker">03 · GENERATE</div><h3>根據資料生成</h3><p>讓答案有可參考的依據。</p></article></div>
+<div class="flow"><article class="card"><div class="kicker">01 · RETRIEVE</div><h3>檢索相關資料</h3><p>依問題找出知識庫片段。</p></article><span class="arrow-inline">→</span><article class="card"><div class="kicker">02 · AUGMENT</div><h3>放進 prompt</h3><p>把問題與檢索內容一起提供。</p></article><span class="arrow-inline">→</span><article class="card"><div class="kicker">03 · GENERATE</div><h3>根據資料生成</h3><p>讓答案有可參考的依據。</p></article></div>
 <div class="grid two"><article class="card"><h3>為什麼用？</h3><p>減少幻覺風險；更新知識庫即可補新資訊，通常不必為每次知識更新重訓模型。</p></article><article class="card"><h3>檢索階段怎麼改善？</h3><p>檢查文件品質、切片與嵌入模型，評估語意匹配與相關性。</p><p><mark>Hybrid Search</mark> 結合語意向量與關鍵字搜尋，補足單一檢索方式的侷限。</p></article></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>向量搜尋語意匹配不準 → 本題選 <strong>Hybrid Search</strong>（115-1 Q22）；亂序資料無法修好檢索。</p></aside>
+<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>向量搜尋語意匹配不準 → 本題選 <strong>Hybrid Search</strong>（115-1 Q22）；把資料順序打亂，沒辦法改善檢索。</p></aside>
 </div></section>
 
 <section class="slide" data-title="模型壓縮，部署前的三種選擇" data-group="應用" aria-label="第 10 頁：模型壓縮，部署前的三種選擇"><div class="shell">
@@ -224,7 +224,7 @@
 <img src="assets/p10-notes.jpg" loading="lazy" alt="學長姐把薄薄的重點筆記交給學弟妹，旁邊放著一疊厚書">
 <figcaption><span class="scene-label">讀書會比喻</span>蒸餾是學長姐幫你濃縮的重點筆記。量化是筆記用縮寫。剪枝是劃掉不考的章節。</figcaption>
 </figure>
-<div class="table-wrap"><table><thead><tr><th>方法</th><th>做什麼</th><th>要不要重訓</th><th>適用情境</th></tr></thead><tbody><tr><th>量化<br>Quantization</th><td><mark>降低數值精度</mark><br>例如浮點權重轉低位元整數</td><td>訓練後量化可不重訓；<br>QAT 則需訓練來適應誤差</td><td>記憶體／儲存受限；<br>硬體支援低精度運算</td></tr><tr><th>剪枝<br>Pruning</th><td><mark>移除低貢獻權重</mark><br>或整個通道、神經元</td><td>通常搭配微調恢復品質，<br>不是必定從零重訓</td><td>模型有多餘的參數；結構化剪枝<br>較易取得實際加速</td></tr><tr><th>蒸餾<br>Distillation</th><td><mark>教師教學生</mark><br>小模型學大模型的輸出</td><td>需要訓練學生模型</td><td>需要更小的模型，<br>盡量保留教師能力</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>做什麼</th><th>要不要重訓</th><th>適用情境</th></tr></thead><tbody><tr><th>量化<br>Quantization</th><td><mark>降低數值精度</mark><br>例如浮點權重轉低位元整數</td><td>訓練後量化可不重訓；<br>QAT 則需訓練來適應誤差</td><td>記憶體／儲存受限；<br>硬體支援低精度運算</td></tr><tr><th>剪枝<br>Pruning</th><td><mark>移除低貢獻權重</mark><br>或整個通道、神經元</td><td>通常搭配微調恢復品質，<br>不一定要從頭重訓</td><td>模型有多餘的參數；結構化剪枝<br>較易取得實際加速</td></tr><tr><th>蒸餾<br>Distillation</th><td><mark>教師教學生</mark><br>小模型學大模型的輸出</td><td>需要訓練學生模型</td><td>需要更小的模型，<br>盡量保留教師能力</td></tr></tbody></table></div>
 <p class="warning">⚠️ 壓縮不保證提高準確率；實際加速也受硬體支援影響，應驗證品質、延遲與記憶體。</p>
 </div>
 <aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>32-bit → 8-bit、且不重訓 → <strong>模型量化</strong>（115-1 Q21）；師生模型 → <strong>蒸餾</strong>。</p></aside>
@@ -364,7 +364,7 @@
 <label class="option"><input type="radio" name="mock-5" value="1"><span>(B)LoRA 直接修改預訓練模型的原始權重矩陣</span></label>
 <label class="option"><input type="radio" name="mock-5" value="2"><span>(C)LoRA 的 rank 越高，所需的 GPU 記憶體越少</span></label>
 <label class="option"><input type="radio" name="mock-5" value="3"><span>(D)LoRA 只能用在 Transformer 的 Attention 層，不能用在其他層</span></label></div></fieldset>
-<details><summary>點擊展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：A</strong> · LoRA 凍結原權重，只訓練新增的低秩 A、B 矩陣，減少可訓練參數。</p><p class="warning">⚠️ rank 提高通常增加適應容量，也增加參數與記憶體成本。</p></div></details>
+<details><summary>點擊展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：A</strong> · LoRA 凍結原權重，只訓練新增的低秩 A、B 矩陣，減少可訓練參數。</p><p class="warning">⚠️ rank 提高通常增加適應能力，也增加參數與記憶體成本。</p></div></details>
 </article><article class="quiz-card" data-index="6" hidden>
 <div class="question-meta"><strong>模擬 7 · 出題機率 🟡中</strong><span>7 / 10</span></div>
 <h3 class="question-text">Transformer 架構中使用了殘差連接（Residual Connection）和層正規化（Layer Normalization），其主要目的為何？</h3>
@@ -618,7 +618,7 @@
       ],
       "answer": 0,
       "explanation": "LoRA 凍結原權重，只訓練新增的低秩 A、B 矩陣，減少可訓練參數。",
-      "trap": "rank 提高通常增加適應容量，也增加參數與記憶體成本。",
+      "trap": "rank 提高通常增加適應能力，也增加參數與記憶體成本。",
       "sourceId": "Q6",
       "probability": "🔴高"
     },
