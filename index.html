@@ -89,11 +89,11 @@
 </style>
 </head>
 <body>
-<header class="topbar"><span class="brand">Transformer / 讀書會</span><nav class="topnav" aria-label="章節導覽"><button data-jump="1" data-group="地圖">地圖</button><button data-jump="2" data-group="核心">核心</button><button data-jump="5" data-group="家族">家族</button><button data-jump="7" data-group="應用">應用</button><button data-jump="10" data-group="必會">關鍵字速查</button><button data-jump="11" data-group="練習">練習</button></nav></header>
+<header class="topbar"><span class="brand">Transformer / 讀書會</span><nav class="topnav" aria-label="章節導覽"><button data-jump="1" data-group="地圖">地圖</button><button data-jump="2" data-group="核心">核心</button><button data-jump="5" data-group="變體">變體</button><button data-jump="7" data-group="應用">應用</button><button data-jump="10" data-group="必會">關鍵字速查</button><button data-jump="11" data-group="練習">練習</button></nav></header>
 <main class="deck">
 <section class="slide hero is-active" data-title="Transformer 架構與應用" data-group="地圖" aria-label="第 1 頁：Transformer 架構與應用"><div class="shell">
-<div class="hero-layout"><div><div class="kicker">iPAS AI 中級 · 科目三 §4.3</div><h1>Transformer<span>架構與應用</span></h1><p>先看詞跟詞怎麼連起來，再講模型家族、微調和部署。</p><button class="primary" data-jump="1">開始讀書會 →</button></div><svg class="hero-art" viewBox="0 0 480 320" role="img" aria-label="同一序列的詞透過注意力直接建立關聯"><g stroke="#285447" fill="none" stroke-width="2"><path d="M55 230 Q240 -100 425 230M55 230 Q185 15 300 230M180 230 Q300 5 425 230M55 230 Q120 95 180 230M180 230 Q240 95 300 230M300 230 Q360 95 425 230"/></g><g fill="#d7ff38" stroke="#11110f"><rect x="15" y="208" width="80" height="52" rx="3"/><rect x="140" y="208" width="80" height="52" rx="3"/><rect x="260" y="208" width="80" height="52" rx="3"/><rect x="385" y="208" width="80" height="52" rx="3"/></g><g text-anchor="middle" fill="#11110f" font-size="22"><text x="55" y="242">每個</text><text x="180" y="242">詞</text><text x="300" y="242">看見</text><text x="425" y="242">彼此</text></g><text x="240" y="302" text-anchor="middle" fill="#62625a" font-size="14">SELF-ATTENTION · 直接連結，整合上下文</text></svg></div>
-<div class="timeband"><div><strong>01 核心機制 · 5 分鐘</strong><span>QKV → 三塊積木</span></div><div><strong>02 模型家族 · 4 分鐘</strong><span>BERT / GPT / T5 / ViT</span></div><div><strong>03 應用部署 · 6 分鐘</strong><span>微調 → RAG → 壓縮</span></div></div>
+<div class="hero-layout"><div><div class="kicker">iPAS AI 中級 · 科目三 §4.3</div><h1>Transformer<span>架構與應用</span></h1><p>先看詞跟詞怎麼連起來，再講Transformer 的變體、微調和部署。</p><button class="primary" data-jump="1">開始讀書會 →</button></div><svg class="hero-art" viewBox="0 0 480 320" role="img" aria-label="同一序列的詞透過注意力直接建立關聯"><g stroke="#285447" fill="none" stroke-width="2"><path d="M55 230 Q240 -100 425 230M55 230 Q185 15 300 230M180 230 Q300 5 425 230M55 230 Q120 95 180 230M180 230 Q240 95 300 230M300 230 Q360 95 425 230"/></g><g fill="#d7ff38" stroke="#11110f"><rect x="15" y="208" width="80" height="52" rx="3"/><rect x="140" y="208" width="80" height="52" rx="3"/><rect x="260" y="208" width="80" height="52" rx="3"/><rect x="385" y="208" width="80" height="52" rx="3"/></g><g text-anchor="middle" fill="#11110f" font-size="22"><text x="55" y="242">每個</text><text x="180" y="242">詞</text><text x="300" y="242">看見</text><text x="425" y="242">彼此</text></g><text x="240" y="302" text-anchor="middle" fill="#62625a" font-size="14">SELF-ATTENTION · 直接連結，整合上下文</text></svg></div>
+<div class="timeband"><div><strong>01 核心機制 · 5 分鐘</strong><span>QKV → 三塊積木</span></div><div><strong>02 Transformer 的變體 · 4 分鐘</strong><span>BERT / GPT / T5 / ViT</span></div><div><strong>03 應用部署 · 6 分鐘</strong><span>微調 → RAG → 壓縮</span></div></div>
 </div></section>
 
 <section class="slide" data-title="Transformer 考試地圖" data-group="地圖" aria-label="第 2 頁：Transformer 考試地圖"><div class="shell">
@@ -216,8 +216,8 @@
 </div></aside>
 </div></section>
 
-<section class="slide" data-title="Transformer 家族圖" data-group="家族" aria-label="第 6 頁：Transformer 家族圖"><div class="shell">
-<header class="section-head"><span class="slide-id">06 / 14</span><h2>Transformer 家族圖</h2><p class="section-note">這張圖照架構和用途分類，不是照發表時間排。</p></header>
+<section class="slide" data-title="Transformer 的變體" data-group="變體" aria-label="第 6 頁：Transformer 的變體"><div class="shell">
+<header class="section-head"><span class="slide-id">06 / 14</span><h2>Transformer 的變體</h2><p class="section-note">這張圖照架構和用途分類，不是照發表時間排。</p></header>
 <div class="content">
 <figure class="scene">
 <img src="assets/p06-family.jpg" loading="lazy" alt="四位同學分別細讀、接著寫、對照兩本書轉寫，以及閱讀九宮格照片">
@@ -272,7 +272,7 @@
 </div></aside>
 </div></section>
 
-<section class="slide" data-title="BERT vs GPT：理解與生成" data-group="家族" aria-label="第 7 頁：BERT vs GPT：理解與生成"><div class="shell">
+<section class="slide" data-title="BERT vs GPT：理解與生成" data-group="變體" aria-label="第 7 頁：BERT vs GPT：理解與生成"><div class="shell">
 <header class="section-head"><span class="slide-id">07 / 14</span><h2>BERT vs GPT：理解與生成</h2><p class="section-note">模型定位是判斷起點；此處比較原始 BERT 與典型 GPT。</p></header>
 <div class="content">
 <figure class="scene">
@@ -569,7 +569,7 @@
 <section class="slide" data-title="3 句話帶走" data-group="收尾" aria-label="第 14 頁：3 句話帶走"><div class="shell">
 <header class="section-head"><span class="slide-id">14 / 14</span><h2>3 句話帶走</h2><p class="section-note">每個名詞，都要說得出它是拿來解決什麼問題。</p></header>
 <div class="content">
-<div class="outro-list"><article class="outro-line"><b>01</b><p>注意力負責把詞連起來，另外三塊各管一件事。<small>QKV 找資訊；多頭看不同關係；位置編碼補順序；Residual＋LayerNorm 穩定訓練。</small></p></article><article class="outro-line"><b>02</b><p>先看任務，再選模型家族。<small>BERT 理解、GPT 生成、T5 文字到文字、ViT 圖塊當序列。</small></p></article><article class="outro-line"><b>03</b><p>看限制，選微調、RAG 或壓縮。<small>適應任務看微調；補知識看檢索；部署資源受限看量化、剪枝與蒸餾。</small></p></article></div><p><button class="primary" data-jump="12">前往考後練習 →</button> <button data-jump="10">回關鍵字速查</button></p>
+<div class="outro-list"><article class="outro-line"><b>01</b><p>注意力負責把詞連起來，另外三塊各管一件事。<small>QKV 找資訊；多頭看不同關係；位置編碼補順序；Residual＋LayerNorm 穩定訓練。</small></p></article><article class="outro-line"><b>02</b><p>先看任務，再選Transformer 的變體。<small>BERT 理解、GPT 生成、T5 文字到文字、ViT 圖塊當序列。</small></p></article><article class="outro-line"><b>03</b><p>看限制，選微調、RAG 或壓縮。<small>適應任務看微調；補知識看檢索；部署資源受限看量化、剪枝與蒸餾。</small></p></article></div><p><button class="primary" data-jump="12">前往考後練習 →</button> <button data-jump="10">回關鍵字速查</button></p>
 </div>
 
 </div></section>
