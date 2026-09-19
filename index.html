@@ -144,7 +144,7 @@
 <figcaption><span class="scene-label">讀書會比喻</span>Self-Attention 像圍桌討論：誰都能直接問誰，不必逐步傳遞，大家可以同時開口。</figcaption>
 </figure>
 <div class="kicker">SELF-ATTENTION</div><h3>遠方的詞，也能直接連上</h3><p>任意 token 在可見上下文內直接建立關聯，<mark>不必逐步傳遞</mark>；訓練時序列運算可平行化。</p></article></div>
-<div class="grid"><article class="card"><h3>① O(L²)</h3><p>標準自注意力要比較所有詞的兩兩關係；長序列耗運算、耗記憶體。</p></article><article class="card"><h3>② 很吃資料（指引寫「數據飢渴」）</h3><p>大型模型往往需要大量資料；小資料有過擬合風險。</p></article><article class="card"><h3>③ 無內建順序</h3><p>注意力本身不會天生知道先後，要額外加入位置資訊。</p></article></div>
+<div class="grid"><article class="card"><h3>① O(L²)</h3><p>自注意力要比較所有詞的兩兩關係；長序列耗運算、耗記憶體。</p></article><article class="card"><h3>② 很吃資料（指引寫「數據飢渴」）</h3><p>大型模型往往需要大量資料；小資料有過擬合風險。</p></article><article class="card"><h3>③ 無內建順序</h3><p>注意力本身不會天生知道先後，要額外加入位置資訊。</p></article></div>
 </div>
 <aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>跨頁條款比對 → <mark>Self-Attention 直接關聯＋平行化</mark><span class="qref">（115-1 Q19）</span>。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
@@ -258,7 +258,7 @@
 </svg>
 </div>
 <div class="grid four branches"><article class="card"><h3>BERT</h3><span class="badge">Encoder-only</span><p>雙向理解上下文。</p><p>分類、實體辨識、答案擷取。</p></article><article class="card"><h3>GPT</h3><span class="badge">Decoder-only</span><p>依前文自迴歸生成。</p><p>續寫、對話、內容生成。</p></article><article class="card"><h3>T5</h3><span class="badge">Encoder–Decoder</span><p><mark>Text-to-Text</mark>：把任務統一成文字輸入、文字輸出。</p></article><article class="card"><h3>ViT</h3><span class="badge">影像 → 序列</span><p>圖像切成 <mark>patch</mark>，把圖塊當詞處理。</p></article></div>
-<p class="callout">長序列 Transformer：用稀疏／局部注意力或近似方法，降低標準自注意力 O(L²) 的成本。</p>
+<p class="callout">長序列 Transformer：用稀疏／局部注意力或近似方法，降低自注意力 O(L²) 的成本。</p>
 </div>
 <aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>圖切 patch → <strong>ViT</strong>；文字到文字 → <strong>T5</strong>；翻譯原始架構 → <strong>Encoder–Decoder</strong>。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
@@ -553,12 +553,12 @@
 <details><summary>點擊展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：B</strong> · ViT 把圖像切成 patch，嵌入成序列後交給 Transformer 處理。</p><p class="warning">⚠️ 不用卷積，不代表不會遇到深層訓練問題；這也是 115-1 Q49 的干擾選項。</p></div></details>
 </article><article class="quiz-card" data-index="9" hidden>
 <div class="question-meta"><strong>模擬 10 · 出題機率 🟢低</strong><span>10 / 10</span></div>
-<h3 class="question-text">處理很長的文件時，標準自注意力的 O(L²) 為何成為瓶頸？稀疏／局部注意力如何改善？</h3>
+<h3 class="question-text">處理很長的文件時，原始 Transformer 自注意力的 O(L²) 為何成為瓶頸？稀疏／局部注意力如何改善？</h3>
 <fieldset><legend>選擇一個答案即計分；每題一次，重新作答可重置。</legend><div class="options"><label class="option"><input type="radio" name="mock-9" value="0"><span>(A)因為參數量必定隨文件長度平方增加；刪除所有位置編碼即可</span></label>
 <label class="option"><input type="radio" name="mock-9" value="1"><span>(B)因為每個詞都必須依序通過 LSTM；換更大的字典即可</span></label>
 <label class="option"><input type="radio" name="mock-9" value="2"><span>(C)因為 token 兩兩建立關聯帶來大量運算與記憶體需求；限制關注的連結可減少成本</span></label>
-<label class="option"><input type="radio" name="mock-9" value="3"><span>(D)因為標準自注意力只看相鄰詞；改成所有詞兩兩比較可降低成本</span></label></div></fieldset>
-<details><summary>點擊展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：C</strong> · 標準自注意力需處理 token 兩兩關係；稀疏或局部注意力減少關注範圍與連結，降低長序列成本。</p><p class="warning">⚠️ 減少連結有資訊取捨；不是宣稱任意長度都零成本。</p></div></details>
+<label class="option"><input type="radio" name="mock-9" value="3"><span>(D)因為自注意力只看相鄰詞；改成所有詞兩兩比較可降低成本</span></label></div></fieldset>
+<details><summary>點擊展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：C</strong> · 自注意力需處理 token 兩兩關係；稀疏或局部注意力減少關注範圍與連結，降低長序列成本。</p><p class="warning">⚠️ 減少連結有資訊取捨；不是宣稱任意長度都零成本。</p></div></details>
 </article>
 <p class="mini-note">直接展開解析屬於閱覽，不計分；要作答請先重新作答。題號底線：綠色＝答對，棕色＝答錯。</p></div>
 </div>
@@ -831,15 +831,15 @@
     {
       "sourceId": "新增 長序列",
       "probability": "🟢低",
-      "text": "處理很長的文件時，標準自注意力的 O(L²) 為何成為瓶頸？稀疏／局部注意力如何改善？",
+      "text": "處理很長的文件時，原始 Transformer 自注意力的 O(L²) 為何成為瓶頸？稀疏／局部注意力如何改善？",
       "options": [
         "因為參數量必定隨文件長度平方增加；刪除所有位置編碼即可",
         "因為每個詞都必須依序通過 LSTM；換更大的字典即可",
         "因為 token 兩兩建立關聯帶來大量運算與記憶體需求；限制關注的連結可減少成本",
-        "因為標準自注意力只看相鄰詞；改成所有詞兩兩比較可降低成本"
+        "因為自注意力只看相鄰詞；改成所有詞兩兩比較可降低成本"
       ],
       "answer": 2,
-      "explanation": "標準自注意力需處理 token 兩兩關係；稀疏或局部注意力減少關注範圍與連結，降低長序列成本。",
+      "explanation": "自注意力需處理 token 兩兩關係；稀疏或局部注意力減少關注範圍與連結，降低長序列成本。",
       "trap": "減少連結有資訊取捨；不是宣稱任意長度都零成本。"
     }
   ]
