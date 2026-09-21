@@ -86,6 +86,54 @@
 .must-know td:nth-child(3)::before{content:"必會的一句話：";display:block;font-size:.85em}
 .must-know td:last-child::before{content:"陷阱選項：";display:block;font-size:.85em}
 }
+
+/* Round 17: larger reading text, one content structure, independent timeline. */
+.reading-slide{font-size:20px}
+.reading-slide .section-note{font-size:17.6px}
+.reading-slide .scene figcaption{font-size:17.6px;line-height:1.5}
+.reading-slide .mini-note{font-size:15.4px}
+.reading-slide .scene-label{font-size:14.3px}
+.reading-slide table{font-size:20px}
+.reading-slide .lifecycle-overview p{font-size:17.6px}
+.reading-slide .lifecycle li{font-size:15.4px}
+.reading-slide .lifecycle small{font-size:13.2px}
+.reading-slide .lifecycle-title{font-size:14.3px}
+.lifecycle-strip{margin-top:auto;border-top:1px solid var(--line);padding-top:10px}
+.exam-band{display:flex;align-items:center;gap:14px;margin:0;font-size:17.6px;line-height:1.5}
+.exam-band>span:nth-child(-n+4){flex-shrink:0}
+.study-reminder,.plain-note{margin:0}
+.reading-slide .lifecycle-overview{background:transparent;border:0;padding:0}
+.reading-slide .lifecycle-overview h3{margin-bottom:10px}
+.reading-slide .lifecycle-overview td,.reading-slide .lifecycle-overview th{padding:8px 12px}
+.slim-slide{padding-top:20px;padding-bottom:20px}
+.slim-slide .shell{gap:14px}
+.slim-slide .content{gap:14px}
+.slim-slide .scene img{height:170px}
+.slim-slide .scene figcaption{margin-top:6px}
+.slim-slide .scene-label{display:inline;margin-right:8px}
+.slim-slide .card{padding:14px 16px}
+.slim-slide .card p{margin:0}
+.slim-slide .card>.scene{margin-bottom:10px}
+.slim-slide .grid{gap:14px}
+.slim-slide th,.slim-slide td{padding:10px 12px;line-height:1.5}
+.slim-slide .blocks{font-size:20px}
+.page-3 .scene img{height:145px}
+.page-3 .limits{font-size:20px}
+.visual-pair{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);align-items:center;gap:24px!important}
+.visual-pair .structure{display:flex;flex-direction:column;gap:12px;min-width:0}
+.visual-pair>.scene img{height:210px}
+.visual-pair .line-diagram svg{min-width:600px}
+.visual-pair .family-diagram,.visual-pair .tuning-diagram{min-width:560px}
+.visual-pair .tuning-diagram{max-width:620px}
+.reading-slide .must-know thead th{font-size:16.5px}
+.reading-slide .must-know thead th:nth-child(-n+2),.reading-slide .must-know tbody th,.reading-slide .must-know .recap-answer{font-size:20px}
+.reading-slide .must-know td:nth-child(n+3){font-size:16.5px}
+.must-know .recap-detail[hidden]{display:none}
+.must-know.recap-collapsed th:first-child{width:60%}
+.must-know.recap-collapsed th:nth-child(2){width:40%}
+#recap-toggle{align-self:flex-start;font-size:17.6px}
+@media(max-width:900px){.visual-pair{grid-template-columns:1fr}.visual-pair>.scene{max-width:600px}.exam-band{flex-wrap:wrap}.slim-slide .blocks{font-size:19px}}
+@media(max-width:600px){.reading-slide{font-size:19px}.reading-slide .section-note{font-size:16.5px}.reading-slide .scene figcaption{font-size:16.5px}.reading-slide .must-know tbody th,.reading-slide .must-know .recap-answer{font-size:19px}.must-know.recap-collapsed tbody th:first-child{width:100%}.slim-slide .scene img{height:190px}}
 </style>
 </head>
 <body>
@@ -96,10 +144,11 @@
 <div class="timeband"><div><strong>01 核心機制 · 5 分鐘</strong><span>QKV → 三塊積木</span></div><div><strong>02 Transformer 的變體 · 4 分鐘</strong><span>BERT / GPT / T5 / ViT</span></div><div><strong>03 應用部署 · 6 分鐘</strong><span>微調 → RAG → 壓縮</span></div></div>
 </div></section>
 
-<section class="slide" data-title="Transformer 考試地圖" data-group="地圖" aria-label="第 2 頁：Transformer 考試地圖"><div class="shell">
+<section class="slide reading-slide" data-title="Transformer 考試地圖" data-group="地圖" aria-label="第 2 頁：Transformer 考試地圖"><div class="shell">
 <header class="section-head"><span class="slide-id">02 / 14</span><h2>Transformer 考試地圖</h2><p class="section-note">命題從核心概念，走向「在限制條件下選策略」。15 分鐘主講；題庫留作演練。</p></header>
 <div class="content">
-<div class="grid"><article class="card"><div class="kicker">114-2 · 1 題</div><p class="big">01 <small>核心概念</small></p><h3>Multi-Head</h3><p><span class="qref">Q21</span>：不同表示子空間<br>→ 同時捕捉多樣關聯。</p></article><article class="card dark"><div class="kicker">115-1 · 7 題</div><p class="big">07 <small>情境與應用</small></p><h3>機制 → LLM 應用</h3><p class="qref">Q3、Q19、Q21、Q22、<br>Q23、Q35、Q42。</p></article><article class="card"><div class="kicker">115-2 · 複習預測</div><h3>優先練「怎麼選」</h3><p>🔴 Self-Attention 與 Multi-Head、BERT vs GPT、LoRA<br>🟡 位置編碼、ViT、RAG<br>🟢 長序列 Transformer</p><p class="mini-note">讀書會研判，非官方預告或統計機率。</p></article></div>
+<p class="exam-band"><span>114-2：1 題・定義</span><span aria-hidden="true">→</span><span>115-1：7 題・情境與應用</span><span aria-hidden="true">→</span><span>115-2 預測：🔴 Self-Attention 與 Multi-Head、BERT vs GPT、LoRA／🟡 位置編碼、ViT、RAG／🟢 長序列 Transformer</span></p>
+<p class="mini-note">讀書會研判，非官方預告</p>
 <article class="lifecycle-overview">
 <h3>模型的一生：今天照這條線走</h3>
 <div class="table-wrap" tabindex="0" role="region" aria-label="模型的一生階段表，可橫向捲動">
@@ -116,9 +165,8 @@
 </div>
 
 </article>
-<p class="callout">本簡報收錄範圍：兩屆共 <strong>8 題</strong>（含跨科應用）；<span class="qref">Q49</span> 只是拿 ViT 當干擾選項，不另外計入。</p>
+<p class="study-reminder">情境題先圈出任務、瓶頸、資源限制</p>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>看到長情境 → 先圈出<strong>任務、瓶頸、資源限制</strong>，再選對機制。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -127,26 +175,25 @@
 <li><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="為什麼需要 Transformer" data-group="核心" aria-label="第 3 頁：為什麼需要 Transformer"><div class="shell">
-<header class="section-head"><span class="slide-id">03 / 14</span><h2>為什麼需要 Transformer</h2><p class="section-note">「不受距離限制」指看得到的上下文內的直接連結；自迴歸生成仍逐 token 進行。</p></header>
+<section class="slide reading-slide slim-slide page-3" data-title="為什麼需要 Transformer" data-group="核心" aria-label="第 3 頁：為什麼需要 Transformer"><div class="shell">
+<header class="section-head"><span class="slide-id">03 / 14</span><h2>為什麼需要 Transformer</h2></header>
 <div class="content">
 <div class="grid two"><article class="card">
 <figure class="scene">
 <img src="assets/p03-whisper.jpg" loading="lazy" alt="五位同學排成一列傳話，頭上的圓點逐漸變淡">
-<figcaption><span class="scene-label">讀書會比喻</span>RNN／LSTM 像傳話遊戲：一個傳一個，越傳越走樣，也沒辦法同時進行。</figcaption>
+<figcaption>RNN／LSTM 像傳話：一個接一個。</figcaption>
 </figure>
-<div class="kicker">RNN / LSTM</div><h3>訊息逐步傳遞</h3><p>RNN 容易遺失長期依賴；LSTM 用門控機制改善，但每一步都要等前一步，平行化受限。</p></article><article class="card attention-scene">
+<p>RNN／LSTM 逐步運算，平行化受限。</p></article><article class="card attention-scene">
 <figure class="scene">
 <img src="assets/p03-roundtable.jpg" loading="lazy" alt="五位同學圍桌討論，彼此以線條直接連結">
-<figcaption><span class="scene-label">讀書會比喻</span>Self-Attention 像圍桌討論：誰都能直接問誰，不必逐步傳遞，大家可以同時開口。</figcaption>
+<figcaption>Self-Attention 像圍桌：直接問對方。</figcaption>
 </figure>
-<div class="kicker">SELF-ATTENTION</div><h3>遠方的詞，也能直接連上</h3><p>任意 token 在看得到的上下文內直接建立關聯，<mark>不必逐步傳遞</mark>；訓練時運算可平行化。</p></article></div>
-<div class="grid"><article class="card"><h3>① O(L²)</h3><p>自注意力要比較所有詞的兩兩關係；長序列耗運算、耗記憶體。</p></article><article class="card"><h3>② 很吃資料</h3><p>大型模型往往需要大量資料；小資料有過擬合風險。</p></article><article class="card"><h3>③ 無內建順序</h3><p>注意力本身不會天生知道先後，要額外加入位置資訊。</p></article></div>
+<p>詞在上下文內直接關聯；訓練時運算可平行化。</p></article></div>
+<div class="grid limits"><article class="card"><p><strong>O(L²)</strong>：長序列耗運算與記憶體。</p></article><article class="card"><p><strong>資料需求</strong>：小資料有過擬合風險。</p></article><article class="card"><p><strong>順序</strong>：需額外加入位置資訊。</p></article></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>跨頁條款比對 → <mark>Self-Attention 直接關聯＋平行化</mark><span class="qref">（115-1 Q19）</span>。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li aria-current="step"><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -155,18 +202,17 @@
 <li><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="Self-Attention 與 Q / K / V" data-group="核心" aria-label="第 4 頁：Self-Attention 與 Q / K / V"><div class="shell">
-<header class="section-head"><span class="slide-id">04 / 14</span><h2>Self-Attention 與 Q / K / V</h2><p class="section-note">讀書會比喻：先比對問題與專長名牌，再按相關程度整合同學講的內容。</p></header>
-<div class="content">
+<section class="slide reading-slide slim-slide page-4" data-title="Self-Attention 與 Q / K / V" data-group="核心" aria-label="第 4 頁：Self-Attention 與 Q / K / V"><div class="shell">
+<header class="section-head"><span class="slide-id">04 / 14</span><h2>Self-Attention 與 Q / K / V</h2></header>
+<div class="content visual-pair">
 <figure class="scene">
 <img src="assets/p04-qkv.jpg" loading="lazy" alt="一位同學舉手發問，其他同學胸前有專長名牌，其中兩張名牌亮起黃綠色">
 <figcaption><span class="scene-label">讀書會比喻</span>Q 是我舉手問的問題，K 是每位同學的專長名牌，V 是同學實際講的內容。名牌越對得上，我越認真聽。</figcaption>
 </figure>
-<div class="flow"><article class="card"><div class="kicker">QUERY · 查詢</div><p class="big">Q</p><h3>我想問什麼？</h3><p>我舉手提出問題。</p></article><span class="arrow-inline">→</span><article class="card"><div class="kicker">KEY · 索引</div><p class="big">K</p><h3>同學的專長名牌</h3><p>把問題與專長名牌比對。</p></article><span class="arrow-inline">→</span><article class="card"><div class="kicker">VALUE · 資訊</div><p class="big">V</p><h3>同學講的內容</h3><p>依相關程度整合內容。</p></article></div>
-<div class="line-diagram">
+<div class="structure"><div class="line-diagram">
 <svg viewBox="0 0 960 340" role="img" aria-label="讀書會版 Q K V">
 <g font-family="PingFang TC,sans-serif">
 <g font-size="12" fill="var(--ink)" letter-spacing="2" text-anchor="middle"><text x="90" y="24">Q · 我的問題</text><text x="445" y="24">K · 同學的名牌</text><text x="605" y="24">V · 同學講的內容</text><text x="850" y="24">輸出 · 我的筆記</text></g>
@@ -179,9 +225,8 @@
 <text x="245" y="320" font-size="14" text-anchor="middle" fill="var(--ink)">拿問題對名牌 → 線越粗＝越相關</text>
 </g></svg>
 </div>
-<p class="callout">Self-Attention：Q、K、V 都由<strong>同一輸入序列</strong>投影而來，讀出帶有上下文的表示。</p>
+<p class="plain-note">Q、K、V 都由同一輸入序列投影而來</p></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>看到 Q/K 比對 → <strong>相關程度</strong>；看到 V → <strong>實際整合的資訊</strong>。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li aria-current="step"><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -190,20 +235,19 @@
 <li><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="三塊積木，各管一件事" data-group="核心" aria-label="第 5 頁：三塊積木，各管一件事"><div class="shell">
-<header class="section-head"><span class="slide-id">05 / 14</span><h2>三塊積木，各管一件事</h2><p class="section-note"></p></header>
+<section class="slide reading-slide slim-slide page-5" data-title="三塊積木，各管一件事" data-group="核心" aria-label="第 5 頁：三塊積木，各管一件事"><div class="shell">
+<header class="section-head"><span class="slide-id">05 / 14</span><h2>三塊積木，各管一件事</h2></header>
 <div class="content">
 <figure class="scene">
 <img src="assets/p05-groups.jpg" loading="lazy" alt="三個讀書會小組各圍一桌，從不同角度討論同一份題目">
 <figcaption><span class="scene-label">讀書會比喻</span>Multi-Head 像同一題分三組討論，各看一個角度，再合併筆記。</figcaption>
 </figure>
-<div class="grid"><article class="card"><div class="kicker">01 · 多視角</div><h3>Multi-Head</h3><p>多組 Q/K/V 投影到<mark>不同表示子空間</mark>，同時學不同注意力模式。</p></article><article class="card"><div class="kicker">02 · 補順序</div><h3>Positional Encoding</h3><p>把位置資訊加入詞嵌入，讓模型能區分順序。</p><p>原始常見做法：固定正弦／餘弦。</p><p><span class="scene-label">讀書會比喻</span>位置編碼像圍成一圈就沒有先後，所以每人發一張座位號碼牌。</p></article><article class="card"><div class="kicker">03 · 深層可訓練</div><h3>Residual + LayerNorm</h3><p>Residual：給資訊與梯度跨層傳遞路徑。</p><p>LayerNorm：穩定特徵尺度，<mark>穩定深層訓練</mark>。</p><p><span class="scene-label">讀書會比喻</span>Residual 像討論結論之外，原始講義也一起往下傳，不怕越討論越偏。</p></article></div>
-<p class="warning">⚠️ Multi-Head 的主要優勢不是「減少參數」；補順序、穩定訓練也各有其他元件負責。</p>
+<div class="grid blocks"><article class="card"><p><strong>Multi-Head</strong><br>從不同表示子空間捕捉關聯。</p></article><article class="card"><p><strong>位置編碼</strong><br>固定正弦／餘弦補順序。</p></article><article class="card"><p><strong>Residual＋LayerNorm</strong><br>梯度跨層傳遞、穩定特徵尺度。</p></article></div>
+
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>不同表示子空間 → <strong>Multi-Head</strong><span class="qref">（114-2 Q21）</span>；順序 → <strong>位置編碼</strong>；深層穩定 → <strong>Residual＋LayerNorm</strong>。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li aria-current="step"><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -212,54 +256,52 @@
 <li><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="Transformer 的變體" data-group="變體" aria-label="第 6 頁：Transformer 的變體"><div class="shell">
-<header class="section-head"><span class="slide-id">06 / 14</span><h2>Transformer 的變體</h2><p class="section-note">這張圖照架構和用途分類，不是照發表時間排。</p></header>
-<div class="content">
+<section class="slide reading-slide slim-slide page-6" data-title="Transformer 的變體" data-group="變體" aria-label="第 6 頁：Transformer 的變體"><div class="shell">
+<header class="section-head"><span class="slide-id">06 / 14</span><h2>Transformer 的變體</h2></header>
+<div class="content visual-pair">
 <figure class="scene">
 <img src="assets/p06-family.jpg" loading="lazy" alt="四位同學分別細讀、接著寫、對照兩本書轉寫，以及閱讀九宮格照片">
 <figcaption><span class="scene-label">讀書會比喻</span>BERT 細讀、GPT 接著寫、T5 把一種文字轉成另一種文字、ViT 把照片切成小格當成詞來讀。</figcaption>
 </figure>
-<div class="family-root"><div class="kicker">原始 Encoder–Decoder · 翻譯</div><strong>Encoder 理解來源句子 → Decoder 依來源表示逐步生成譯文</strong></div>
-<div class="line-diagram">
+<div class="structure"><div class="line-diagram">
 <svg class="family-diagram" viewBox="0 0 700 360" role="img" aria-label="模型架構：BERT 只用 Encoder，GPT 只用 Decoder，T5 兩者都用，ViT 將九宮格圖片送進 Encoder">
 <text x="350" y="24" text-anchor="middle" fill="var(--ink)" font-size="17">亮色積木＝使用的架構；淡色積木＝未使用</text>
-<g transform="translate(0,45)"><text x="24" y="34" font-size="22" fill="var(--ink)">BERT</text>
+<g transform="translate(0,45)"><text x="24" y="34" font-size="22" fill="var(--ink)">BERT 理解</text>
 <g opacity="1"><rect x="280" y="0" width="158" height="56" rx="4" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/><text x="359" y="35" text-anchor="middle" font-size="20" fill="var(--ink)">Encoder</text></g>
 <g opacity="0.4"><rect x="480" y="0" width="158" height="56" rx="4" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/><text x="559" y="35" text-anchor="middle" font-size="20" fill="var(--ink)">Decoder</text></g>
 </g>
-<g transform="translate(0,123)"><text x="24" y="34" font-size="22" fill="var(--ink)">GPT</text>
+<g transform="translate(0,123)"><text x="24" y="34" font-size="22" fill="var(--ink)">GPT 生成</text>
 <g opacity="0.4"><rect x="280" y="0" width="158" height="56" rx="4" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/><text x="359" y="35" text-anchor="middle" font-size="20" fill="var(--ink)">Encoder</text></g>
 <g opacity="1"><rect x="480" y="0" width="158" height="56" rx="4" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/><text x="559" y="35" text-anchor="middle" font-size="20" fill="var(--ink)">Decoder</text></g>
 </g>
-<g transform="translate(0,201)"><text x="24" y="34" font-size="22" fill="var(--ink)">T5</text>
+<g transform="translate(0,201)"><text x="24" y="34" font-size="22" fill="var(--ink)">T5 文字到文字</text>
 <g opacity="1"><rect x="280" y="0" width="158" height="56" rx="4" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/><text x="359" y="35" text-anchor="middle" font-size="20" fill="var(--ink)">Encoder</text></g>
 <g opacity="1"><rect x="480" y="0" width="158" height="56" rx="4" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/><text x="559" y="35" text-anchor="middle" font-size="20" fill="var(--ink)">Decoder</text></g>
 <path d="M442 28H473m-8-6 8 6-8 6" fill="none" stroke="var(--green)" stroke-width="2"/>
 </g>
-<g transform="translate(0,279)"><text x="24" y="34" font-size="22" fill="var(--ink)">ViT</text>
+<g transform="translate(0,279)"><text x="24" y="34" font-size="22" fill="var(--ink)">ViT 圖像塊</text>
 <g opacity="1"><rect x="280" y="0" width="158" height="56" rx="4" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/><text x="359" y="35" text-anchor="middle" font-size="20" fill="var(--ink)">Encoder</text></g>
 <g opacity="0.4"><rect x="480" y="0" width="158" height="56" rx="4" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/><text x="559" y="35" text-anchor="middle" font-size="20" fill="var(--ink)">Decoder</text></g>
 <g fill="var(--signal)" stroke="var(--green)" stroke-width="1.5">
-<rect x="142" y="2" width="16" height="16"/>
-<rect x="160" y="2" width="16" height="16"/>
-<rect x="178" y="2" width="16" height="16"/>
-<rect x="142" y="20" width="16" height="16"/>
-<rect x="160" y="20" width="16" height="16"/>
-<rect x="178" y="20" width="16" height="16"/>
-<rect x="142" y="38" width="16" height="16"/>
-<rect x="160" y="38" width="16" height="16"/>
-<rect x="178" y="38" width="16" height="16"/>
-</g><path d="M207 28H270m-9-7 9 7-9 7" fill="none" stroke="var(--green)" stroke-width="2"/>
+<rect x="172" y="2" width="16" height="16"/>
+<rect x="190" y="2" width="16" height="16"/>
+<rect x="208" y="2" width="16" height="16"/>
+<rect x="172" y="20" width="16" height="16"/>
+<rect x="190" y="20" width="16" height="16"/>
+<rect x="208" y="20" width="16" height="16"/>
+<rect x="172" y="38" width="16" height="16"/>
+<rect x="190" y="38" width="16" height="16"/>
+<rect x="208" y="38" width="16" height="16"/>
+</g><path d="M237 28H270m-9-7 9 7-9 7" fill="none" stroke="var(--green)" stroke-width="2"/>
 </g>
 </svg>
 </div>
-<div class="grid four branches"><article class="card"><h3>BERT</h3><span class="badge">只用編碼器（Encoder）</span><p>雙向理解上下文。</p><p>分類、實體辨識、問答系統。</p></article><article class="card"><h3>GPT</h3><span class="badge">只用解碼器（Decoder）</span><p>依前文自迴歸生成。</p><p>續寫、對話、內容生成。</p></article><article class="card"><h3>T5</h3><span class="badge">Encoder–Decoder</span><p><mark>Text-to-Text</mark>：把任務統一成文字輸入、文字輸出。</p></article><article class="card"><h3>ViT</h3><span class="badge">影像 → 序列</span><p>圖像切成 <mark>patch</mark>，把圖像塊當詞處理。</p></article></div>
-<p class="callout">長序列 Transformer：用稀疏／局部注意力或注意力近似計算，降低自注意力 O(L²) 的成本。</p>
+
+<p class="plain-note">長序列 Transformer：稀疏／局部注意力，降低 O(L²) 成本</p></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>圖切 patch → <strong>ViT</strong>；文字到文字 → <strong>T5</strong>；翻譯原始架構 → <strong>Encoder–Decoder</strong>。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -268,20 +310,18 @@
 <li><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="BERT vs GPT：理解與生成" data-group="變體" aria-label="第 7 頁：BERT vs GPT：理解與生成"><div class="shell">
-<header class="section-head"><span class="slide-id">07 / 14</span><h2>BERT vs GPT：理解與生成</h2><p class="section-note">模型定位是判斷起點；此處比較原始 BERT 與典型 GPT。</p></header>
-<div class="content">
+<section class="slide reading-slide slim-slide page-7" data-title="BERT vs GPT：理解與生成" data-group="變體" aria-label="第 7 頁：BERT vs GPT：理解與生成"><div class="shell">
+<header class="section-head"><span class="slide-id">07 / 14</span><h2>BERT vs GPT：理解與生成</h2></header>
+<div class="content visual-pair">
 <figure class="scene">
 <img src="assets/p07-cloze-relay.jpg" loading="lazy" alt="左側同學看前後文做克漏字，右側同學在長紙條上接續故事">
 <figcaption><span class="scene-label">讀書會比喻</span>BERT 是克漏字，空格前後文都看得到。GPT 是故事接龍，只能看前面接下去。</figcaption>
 </figure>
-<div class="table-wrap"><table><thead><tr><th>比較面向</th><th>BERT</th><th>GPT</th></tr></thead><tbody><tr><th>架構／方向</th><td>只用編碼器（Encoder）／<mark>雙向</mark>上下文</td><td>只用解碼器（Decoder）／<mark>單向自迴歸</mark></td></tr><tr><th>預訓練任務</th><td>MLM：隨機遮住幾個詞，讓模型猜回來<br>NSP：判斷兩句是否接續（原始 BERT）</td><td>根據已有前文，預測下一個 token</td></tr><tr><th>適合任務</th><td>理解：分類、實體辨識、問答系統</td><td>生成：續寫、摘要、對話</td></tr><tr><th>生成差異</th><td>雙向上下文預訓練，原始架構不以逐步續寫為主</td><td>訓練方式直接對應「看前文、接下一詞」</td></tr></tbody></table></div>
-<p class="warning">⚠️ BERT 生成效果差，不能只怪「資料太少」或「模型太小」；先看架構與預訓練任務是否適合任務。</p>
+<div class="structure"><div class="table-wrap"><table><thead><tr><th>比較</th><th>BERT</th><th>GPT</th></tr></thead><tbody><tr><th>架構／方向</th><td>編碼器（Encoder）／雙向</td><td>解碼器（Decoder）／單向自迴歸</td></tr><tr><th>預訓練任務</th><td>MLM：猜遮住的詞<br>NSP：判斷兩句是否接續</td><td>依前文預測下一個 token</td></tr><tr><th>任務</th><td>分類、實體辨識、問答系統</td><td>續寫、摘要、對話</td></tr><tr><th>生成差異</th><td>原始架構不以續寫為主</td><td>訓練直接對應逐步續寫</td></tr></tbody></table></div></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>接續合約後半段 → <mark>GPT 的自迴歸生成</mark>；<span class="qref">115-1 Q23</span> 選 D。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -290,18 +330,18 @@
 <li><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="微調策略三選一" data-group="應用" aria-label="第 8 頁：微調策略三選一"><div class="shell">
-<header class="section-head"><span class="slide-id">08 / 14</span><h2>微調策略三選一</h2><p class="section-note"></p></header>
-<div class="content">
+<section class="slide reading-slide slim-slide page-8" data-title="微調策略三選一" data-group="應用" aria-label="第 8 頁：微調策略三選一"><div class="shell">
+<header class="section-head"><span class="slide-id">08 / 14</span><h2>微調策略三選一</h2></header>
+<div class="content visual-pair">
 <figure class="scene">
 <img src="assets/p08-stickynotes.jpg" loading="lazy" alt="上鎖的厚課本貼著幾張黃綠色便利貼，表示課本保留、另外補上筆記">
 <figcaption><span class="scene-label">讀書會比喻</span>LoRA 像課本不動、只貼便利貼。特徵萃取是課本不動、只寫後面的答案卷。全面微調是整本課本重寫。</figcaption>
 </figure>
-<p><span class="badge">LoRA：跨科考點（科目三指引外，115-1 已考）</span></p>
-<div class="grid"><article class="card"><div class="kicker">凍結 · 特徵萃取</div><h3>Feature Extraction</h3><p>凍結既有模型權重，取出特徵；只訓練後面新接的輸出層。</p><p><mark>既有權重不更新</mark><br>→ <span class="qref">115-1 Q42</span>。</p></article><article class="card"><div class="kicker">全面更新</div><h3>Full Fine-tuning</h3><p>更新整個預訓練模型的權重，以適應新任務。</p><p>可調整範圍大，訓練記憶體與成本通常較高。</p></article><article class="card dark"><div class="kicker">新增的低秩參數</div><h3>LoRA</h3><p>凍結原權重，只訓練<mark>新增的低秩參數</mark>。</p><p>rank 高：適應能力較強、成本較高。<br>rank 低：較省資源、適應能力受限。</p></article></div>
+<div class="structure"><p class="mini-note cross-subject">LoRA：跨科考點（科目三指引外，115-1 已考）</p>
+
 <div class="line-diagram">
 <svg class="tuning-diagram" viewBox="0 0 700 420" role="img" aria-label="特徵萃取：既有模型上鎖，後接可訓練輸出層；全面微調：模型開鎖；LoRA：既有模型上鎖，只訓練新增的低秩參數">
 <g fill="var(--ink)" font-size="20"><text x="20" y="66">特徵萃取</text><text x="20" y="186">全面微調</text><text x="20" y="306">LoRA</text></g>
@@ -314,15 +354,13 @@
 <path d="M436 54H498m-8-6 8 6-8 6" fill="none" stroke="var(--green)" stroke-width="2"/>
 <rect x="504" y="33" width="148" height="42" rx="4" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/>
 <text x="578" y="60" text-anchor="middle" fill="var(--ink)" font-size="18">新接輸出層</text>
-<g fill="var(--green)" font-size="16"><text x="336" y="112" text-anchor="middle">上鎖：權重不更新</text><text x="336" y="232" text-anchor="middle">開鎖：全部可更新</text><text x="336" y="350" text-anchor="middle">上鎖：權重不更新</text></g>
+<g fill="var(--green)" font-size="16"><text x="336" y="112" text-anchor="middle">凍結既有權重，只訓練新接輸出層</text><text x="336" y="232" text-anchor="middle">更新整個預訓練模型的權重</text><text x="336" y="350" text-anchor="middle">上鎖：權重不更新</text></g>
 <path d="M200 294V382H274M398 382H478V294m-6 9 6-9 6 9" fill="none" stroke="var(--green)" stroke-width="2"/>
 <rect x="274" y="363" width="124" height="38" rx="4" fill="var(--signal)" stroke="var(--green)" stroke-width="2"/>
 <text x="336" y="389" text-anchor="middle" fill="var(--ink)" font-size="20">低秩參數</text><text x="500" y="388" fill="var(--green)" font-size="16">只訓練新增的低秩參數</text>
 </svg>
+</div></div>
 </div>
-<p class="warning">⚠️ <span class="qref">Q35</span> 的GPU 記憶體已近上限：公告選「降低 rank、套用更多層，保持 trainable 總參數不變」；不是一律加大 rank，實務上還是要實際測過品質和 GPU 記憶體用量。</p>
-</div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>凍結既有權重作特徵 → <strong>Feature Extraction</strong>；凍結＋訓練新增的低秩參數 → <strong>LoRA</strong>。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -331,21 +369,20 @@
 <li><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="RAG：先找資料，再生成" data-group="應用" aria-label="第 9 頁：RAG：先找資料，再生成"><div class="shell">
-<header class="section-head"><span class="slide-id">09 / 14</span><h2>RAG：先找資料，再生成</h2><p class="section-note">RAG 提供外部依據，仍需要檢查檢索品質與回答是否忠於資料。</p></header>
+<section class="slide reading-slide slim-slide page-9" data-title="RAG：先找資料，再生成" data-group="應用" aria-label="第 9 頁：RAG：先找資料，再生成"><div class="shell">
+<header class="section-head"><span class="slide-id">09 / 14</span><h2>RAG：先找資料，再生成</h2></header>
 <div class="content">
 <figure class="scene">
 <img src="assets/p09-openbook.jpg" loading="lazy" alt="同學作答時翻閱身旁攤開的參考書，後方有一座小書架">
 <figcaption><span class="scene-label">讀書會比喻</span>RAG 像開書考：先翻資料，再作答，不靠硬背。</figcaption>
 </figure>
-<p><span class="badge">RAG：跨科考點（科目三指引外，115-1 已考）</span></p>
-<div class="flow"><article class="card"><div class="kicker">01 · 檢索</div><h3>檢索相關資料</h3><p>依問題找出知識庫中的相關資料。</p></article><span class="arrow-inline">→</span><article class="card"><div class="kicker">02 · 結合</div><h3>放進 prompt</h3><p>把問題與檢索內容一起提供。</p></article><span class="arrow-inline">→</span><article class="card"><div class="kicker">03 · 生成</div><h3>根據資料生成</h3><p>讓答案有可參考的依據。</p></article></div>
-<div class="grid two"><article class="card"><h3>為什麼用？</h3><p>減少幻覺風險；更新知識庫即可補新資訊，通常不必為每次知識更新重訓模型。</p></article><article class="card"><h3>檢索階段怎麼改善？</h3><p>檢查文件品質、切片與詞嵌入模型，評估語意匹配與相關性。</p><p><mark>Hybrid Search</mark> 結合語意向量與關鍵字搜尋，補足單一檢索方式的侷限。</p></article></div>
+<p class="mini-note cross-subject">RAG：跨科考點（科目三指引外，115-1 已考）</p>
+<div class="grid blocks"><article class="card"><p><strong>① 檢索</strong><br>依問題找相關資料。</p></article><article class="card"><p><strong>② 結合</strong><br>問題與資料放進 prompt。</p></article><article class="card"><p><strong>③ 生成</strong><br>根據資料生成答案。</p></article></div>
+<p class="plain-note">為什麼用：減少幻覺風險；更新知識庫補新資訊，通常不必重訓模型。</p>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>向量搜尋語意匹配不準 → 本題選 <strong>Hybrid Search</strong><span class="qref">（115-1 Q22）</span>；把資料順序打亂，沒辦法改善檢索。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -354,20 +391,18 @@
 <li aria-current="step"><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="模型壓縮，部署前的三種選擇" data-group="應用" aria-label="第 10 頁：模型壓縮，部署前的三種選擇"><div class="shell">
-<header class="section-head"><span class="slide-id">10 / 14</span><h2>模型壓縮，部署前的三種選擇</h2><p class="section-note"></p></header>
-<div class="content">
+<section class="slide reading-slide slim-slide page-10" data-title="模型壓縮，部署前的三種選擇" data-group="應用" aria-label="第 10 頁：模型壓縮，部署前的三種選擇"><div class="shell">
+<header class="section-head"><span class="slide-id">10 / 14</span><h2>模型壓縮，部署前的三種選擇</h2></header>
+<div class="content visual-pair">
 <figure class="scene">
 <img src="assets/p10-notes.jpg" loading="lazy" alt="學長姐把薄薄的重點筆記交給學弟妹，旁邊放著一疊厚書">
 <figcaption><span class="scene-label">讀書會比喻</span>蒸餾是學長姐幫你濃縮的重點筆記。量化是筆記用縮寫。剪枝是劃掉不考的章節。</figcaption>
 </figure>
-<div class="table-wrap"><table><thead><tr><th>方法</th><th>做什麼</th><th>要不要重訓</th><th>適用情境</th></tr></thead><tbody><tr><th>量化<br>Quantization</th><td><mark>降低數值精度</mark><br>例如浮點數權重轉 8-bit 整數</td><td>模型量化（不重新訓練）；<br>QAT 則需訓練來適應誤差</td><td>記憶體／儲存受限；<br>硬體支援低精度運算</td></tr><tr><th>剪枝<br>Pruning</th><td><mark>移除貢獻度低的權重</mark><br>或整個通道、神經元</td><td>通常搭配微調恢復品質，<br>不一定要從頭重訓</td><td>模型有多餘的參數；結構化剪枝<br>較易取得實際加速</td></tr><tr><th>蒸餾<br>Distillation</th><td><mark>教師教學生</mark><br>小模型學大模型的輸出</td><td>需要訓練學生模型</td><td>需要更小的模型，<br>盡量保留教師能力</td></tr></tbody></table></div>
-<p class="warning">⚠️ 壓縮不保證提高準確率；實際加速也受硬體支援影響，應驗證品質、延遲與記憶體。</p>
+<div class="structure"><div class="table-wrap"><table><thead><tr><th>方法</th><th>做什麼</th><th>要不要重訓</th></tr></thead><tbody><tr><th>量化<br>Quantization</th><td><mark>降低數值精度</mark><br>例如浮點數權重轉 8-bit 整數</td><td>可不重新訓練；<br>QAT 則需訓練來適應誤差</td></tr><tr><th>剪枝<br>Pruning</th><td><mark>移除貢獻度低的權重</mark><br>或整個通道、神經元</td><td>通常搭配微調恢復品質，<br>不一定要從頭重訓</td></tr><tr><th>蒸餾<br>Distillation</th><td><mark>教師教學生</mark><br>小模型學大模型的輸出</td><td>需要訓練學生模型</td></tr></tbody></table></div></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>32-bit → 8-bit、且不重訓 → <strong>模型量化</strong><span class="qref">（115-1 Q21）</span>；教師模型與學生模型 → <strong>蒸餾</strong>。</p>
 <div class="lifecycle-strip"><h4 class="lifecycle-title">模型的一生</h4>
 <ol class="lifecycle" aria-label="模型的一生">
 <li><strong>① 怎麼蓋</strong><small>注意力與三塊積木</small></li>
@@ -376,26 +411,28 @@
 <li><strong>④ 補它的知識</strong><small>RAG</small></li>
 <li aria-current="step"><strong>⑤ 塞進小裝置</strong><small>量化／剪枝／蒸餾</small></li>
 </ol>
-</div></aside>
+</div>
 </div></section>
 
-<section class="slide" data-title="關鍵字速查 × 必會 8 件事" data-group="必會" aria-label="第 11 頁：關鍵字速查 × 必會 8 件事"><div class="shell">
-<header class="section-head"><span class="slide-id">11 / 14</span><h2>關鍵字速查 × 必會 8 件事</h2><p class="section-note">先掃前兩欄認關鍵字；有空再讀後兩欄。</p></header>
+<section class="slide reading-slide" data-title="關鍵字速查 × 必會 8 件事" data-group="必會" aria-label="第 11 頁：關鍵字速查 × 必會 8 件事"><div class="shell">
+<header class="section-head"><span class="slide-id">11 / 14</span><h2>關鍵字速查 × 必會 8 件事</h2><p class="section-note">先認關鍵字；需要時展開一句話與陷阱。</p></header>
 <div class="content recap-content">
-<table class="must-know" aria-label="關鍵字速查 × 必會 8 件事"><thead><tr><th scope="col">看到這些字</th><th scope="col">答案</th><th scope="col">必會的一句話</th><th scope="col">陷阱選項</th></tr></thead><tbody>
-<tr><th scope="row"><span class="recap-keywords">任意 token 直接建立關聯／不受距離限制／運算可平行化</span></th><td class="recap-answer"><span class="recap-number">1</span><mark>Self-Attention</mark></td><td>它勝過 RNN／LSTM 的原因就是這三點。<span class="qref">115-1 Q19</span></td><td>參數比較少；內建位置編碼；LSTM 有 512 上限</td></tr>
-<tr><th scope="row"><span class="recap-keywords">不同表示子空間</span></th><td class="recap-answer"><span class="recap-number">2</span><mark>Multi-Head</mark></td><td>同時捕捉多樣關聯，這句要背原文。<span class="qref">114-2 Q21</span></td><td>減少參數；加速計算；避免梯度消失</td></tr>
-<tr><th scope="row"><span class="recap-keywords">Q 是我在找什麼／K 是我能提供什麼／V 是被關注後提供的資訊</span></th><td class="recap-answer"><span class="recap-number">3</span><mark>Q／K／V</mark></td><td>Q 對 K 比對相關程度，再依相關程度整合 V。<span class="qref">學習指引</span></td><td>把 K 當成內容本身</td></tr>
-<tr><th scope="row"><span class="recap-keywords">補充位置、順序／深層可訓練</span></th><td class="recap-answer"><span class="recap-number">4</span><mark>位置編碼／Residual＋LayerNorm</mark></td><td>注意力本身不知道先後；Residual 讓梯度跨層傳，LayerNorm 穩定深層訓練。<span class="qref">學習指引</span></td><td>「Transformer 天生理解順序」</td></tr>
-<tr><th scope="row"><span class="recap-keywords">雙向理解、克漏字／逐步續寫、自迴歸</span></th><td class="recap-answer"><span class="recap-number">5</span><mark>BERT／GPT</mark></td><td>BERT 只用編碼器（Encoder），GPT 只用解碼器（Decoder）。BERT 生成差，要看架構與預訓練任務。<span class="qref">115-1 Q23</span></td><td>「多加資料就會改善」</td></tr>
-<tr><th scope="row"><span class="recap-keywords">凍結既有權重／全部更新／凍結＋新增低秩參數</span></th><td class="recap-answer"><span class="recap-number">6</span><mark>特徵萃取／全面微調／LoRA</mark></td><td>GPU 記憶體快滿時：降 rank、套用到更多層。<span class="qref">115-1 Q42、Q35</span></td><td>一律提高 rank；改成全面微調</td></tr>
-<tr><th scope="row"><span class="recap-keywords">查文件再回答／語意匹配不準</span></th><td class="recap-answer"><span class="recap-number">7</span><mark>RAG／混合搜尋</mark></td><td>先檢索、放進 prompt、再生成；能降低幻覺，不能完全消除。<span class="qref">115-1 Q22</span></td><td>只縮小切片大小；「完全消除幻覺」</td></tr>
-<tr><th scope="row"><span class="recap-keywords">32 位元降 8 位元且不重訓／刪貢獻度低的權重／教師與學生</span></th><td class="recap-answer"><span class="recap-number">8</span><mark>量化／剪枝／蒸餾</mark></td><td>三種都是讓模型變小變快，要看題目描述的是哪一種動作。<span class="qref">115-1 Q21</span></td><td>三者互相當干擾項</td></tr>
-<tr class="bonus-row"><th scope="row"><span class="bonus-label">加分</span><span class="recap-keywords">Text-to-Text／圖切 patch／成本隨長度平方成長</span></th><td class="recap-answer"><mark>T5／ViT／長序列 Transformer</mark></td><td>指引有寫、還沒直接考。</td><td>「ViT 不會有深層訓練問題」</td></tr>
+<button id="recap-toggle" type="button" aria-pressed="false" aria-controls="recap-table">顯示完整（一句話與陷阱）</button>
+<table id="recap-table" class="must-know recap-collapsed" aria-label="關鍵字速查 × 必會 8 件事"><thead><tr><th scope="col">看到這些字</th><th scope="col">答案</th><th class="recap-detail" hidden scope="col">必會的一句話</th><th class="recap-detail" hidden scope="col">陷阱選項</th></tr></thead><tbody>
+<tr><th scope="row"><span class="recap-keywords">任意 token 直接建立關聯／不受距離限制／運算可平行化</span></th><td class="recap-answer"><span class="recap-number">1</span><mark>Self-Attention</mark></td><td class="recap-detail" hidden>它勝過 RNN／LSTM 的原因就是這三點。<span class="qref">115-1 Q19</span></td><td class="recap-detail" hidden>參數比較少；內建位置編碼；LSTM 有 512 上限</td></tr>
+<tr><th scope="row"><span class="recap-keywords">不同表示子空間</span></th><td class="recap-answer"><span class="recap-number">2</span><mark>Multi-Head</mark></td><td class="recap-detail" hidden>同時捕捉多樣關聯，這句要背原文。<span class="qref">114-2 Q21</span></td><td class="recap-detail" hidden>減少參數；加速計算；避免梯度消失</td></tr>
+<tr><th scope="row"><span class="recap-keywords">Q 是我在找什麼／K 是我能提供什麼／V 是被關注後提供的資訊</span></th><td class="recap-answer"><span class="recap-number">3</span><mark>Q／K／V</mark></td><td class="recap-detail" hidden>Q 對 K 比對相關程度，再依相關程度整合 V。<span class="qref">學習指引</span></td><td class="recap-detail" hidden>把 K 當成內容本身</td></tr>
+<tr><th scope="row"><span class="recap-keywords">補充位置、順序／深層可訓練</span></th><td class="recap-answer"><span class="recap-number">4</span><mark>位置編碼／Residual＋LayerNorm</mark></td><td class="recap-detail" hidden>注意力本身不知道先後；Residual 讓梯度跨層傳，LayerNorm 穩定深層訓練。<span class="qref">學習指引</span></td><td class="recap-detail" hidden>「Transformer 天生理解順序」</td></tr>
+<tr><th scope="row"><span class="recap-keywords">雙向理解、克漏字／逐步續寫、自迴歸</span></th><td class="recap-answer"><span class="recap-number">5</span><mark>BERT／GPT</mark></td><td class="recap-detail" hidden>BERT 只用編碼器（Encoder），GPT 只用解碼器（Decoder）。BERT 生成差，要看架構與預訓練任務。<span class="qref">115-1 Q23</span></td><td class="recap-detail" hidden>「多加資料就會改善」</td></tr>
+<tr><th scope="row"><span class="recap-keywords">凍結既有權重／全部更新／凍結＋新增低秩參數</span></th><td class="recap-answer"><span class="recap-number">6</span><mark>特徵萃取／全面微調／LoRA</mark></td><td class="recap-detail" hidden>GPU 記憶體快滿時：降 rank、套用到更多層。<span class="qref">115-1 Q42、Q35</span></td><td class="recap-detail" hidden>一律提高 rank；改成全面微調</td></tr>
+<tr><th scope="row"><span class="recap-keywords">查文件再回答／語意匹配不準</span></th><td class="recap-answer"><span class="recap-number">7</span><mark>RAG／混合搜尋</mark></td><td class="recap-detail" hidden>先檢索、放進 prompt、再生成；能降低幻覺，不能完全消除。<span class="qref">115-1 Q22</span></td><td class="recap-detail" hidden>只縮小切片大小；「完全消除幻覺」</td></tr>
+<tr><th scope="row"><span class="recap-keywords">32 位元降 8 位元且不重訓／刪貢獻度低的權重／教師與學生</span></th><td class="recap-answer"><span class="recap-number">8</span><mark>量化／剪枝／蒸餾</mark></td><td class="recap-detail" hidden>三種都是讓模型變小變快，要看題目描述的是哪一種動作。<span class="qref">115-1 Q21</span></td><td class="recap-detail" hidden>三者互相當干擾項</td></tr>
+<tr class="bonus-row"><th scope="row"><span class="bonus-label">加分</span><span class="recap-keywords">Text-to-Text／圖切 patch／成本隨長度平方成長</span></th><td class="recap-answer"><mark>T5／ViT／長序列 Transformer</mark></td><td class="recap-detail" hidden>指引有寫、還沒直接考。</td><td class="recap-detail" hidden>「ViT 不會有深層訓練問題」</td></tr>
 </tbody></table>
+<p class="mini-note">情境題先圈出任務、瓶頸、資源限制</p>
 <div class="recap-notes mini-note"><p>選項出現『一定、完全、天生』，先停一下。</p></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>情境題先圈出任務、瓶頸、資源限制，再回來對這 8 列。</p></aside>
+
 </div></section>
 
 <section class="slide" data-title="考古題實戰：兩屆 8 題" data-group="練習" aria-label="第 12 頁：考古題實戰：兩屆 8 題"><div class="shell">
@@ -469,8 +506,7 @@
 </article>
 <p class="mini-note">直接展開解析屬於閱覽，不計分；要作答請先重新作答。題號底線：綠色＝答對，棕色＝答錯。</p></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>Q3 只快速帶過；其餘先辨識關鍵字，再核對題目條件。</p>
-</aside>
+
 </div></section>
 
 <section class="slide" data-title="模擬題：10 題情境判斷" data-group="練習" aria-label="第 13 頁：模擬題：10 題情境判斷"><div class="shell">
@@ -561,8 +597,7 @@
 </article>
 <p class="mini-note">直接展開解析屬於閱覽，不計分；要作答請先重新作答。題號底線：綠色＝答對，棕色＝答錯。</p></div>
 </div>
-<aside class="exam-strip"><h3>🎯 考試怎麼考</h3><p>十題都從情境出發；先圈出<strong>任務、瓶頸、資源限制</strong>，再選最合理的機制或做法。</p>
-</aside>
+
 </div></section>
 
 <section class="slide" data-title="3 句話帶走" data-group="收尾" aria-label="第 14 頁：3 句話帶走"><div class="shell">
@@ -844,6 +879,16 @@
 }
 </script>
 <script>
+// One table serves both desktop rows and mobile cards.
+const recapToggle=document.querySelector('#recap-toggle');
+const recapTable=document.querySelector('#recap-table');
+recapToggle.addEventListener('click',()=>{
+ const expanded=recapToggle.getAttribute('aria-pressed')!=='true';
+ recapToggle.setAttribute('aria-pressed',String(expanded));
+ recapToggle.textContent=expanded?'只看關鍵字':'顯示完整（一句話與陷阱）';
+ recapTable.classList.toggle('recap-collapsed',!expanded);
+ recapTable.querySelectorAll('.recap-detail').forEach(cell=>cell.hidden=!expanded);
+});
 // Slide controller adapted from PCA. No external resources.
 const slides = [...document.querySelectorAll('.slide')];
 const navButtons = [...document.querySelectorAll('.topnav [data-jump]')];
