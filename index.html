@@ -139,7 +139,7 @@
 /* Bilingual headings: one smaller step; preserve the existing layout. */
 .page-4 .section-head h2,.page-9 .section-head h2,.page-10 .section-head h2{font-size:clamp(30px,2.8vw,42px);overflow-wrap:break-word}
 .page-5 .blocks .card strong{font-size:18px;line-height:1.4;overflow-wrap:anywhere}
-</style>
+.exam-code{margin:0 0 14px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.55;overflow-x:auto;white-space:pre}</style>
 </head>
 <body>
 <header class="topbar"><span class="brand">Transformer / 讀書會</span><nav class="topnav" aria-label="章節導覽"><button data-jump="1" data-group="地圖">地圖</button><button data-jump="2" data-group="核心">核心</button><button data-jump="5" data-group="變體">變體</button><button data-jump="7" data-group="應用">應用</button><button data-jump="10" data-group="必會">關鍵字速查</button><button data-jump="11" data-group="練習">練習</button></nav></header>
@@ -525,7 +525,17 @@
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：D</strong> · 公告選 D：調低 rank 並涵蓋更多層，保持 trainable 總參數不變；實際品質與GPU 記憶體仍需驗證。</p></div></details>
 </article><article class="quiz-card" data-index="6" hidden>
 <div class="question-meta"><strong>115-1 Q42 · 特徵萃取</strong><span>7 / 8</span></div>
-<h3 class="question-text">觀察程式中行(A)將所有既有權重的梯度計算關閉，這在遷移學習中屬於哪一種標  準策略？</h3><p class="mini-note">題組背景：使用 ResNet 進行遷移學習。行(A)的作用已在題幹中說明。</p>
+<h3 class="question-text">觀察程式中行(A)將所有既有權重的梯度計算關閉，這在遷移學習中屬於哪一種標準策略？</h3><p class="mini-note">題組說明：下圖為使用 ResNet 進行遷移學習（Transfer Learning）的 Python 程式片段。</p>
+<pre class="exam-code"><code>import torch
+import torch.nn as nn
+import torchvision
+
+model = torchvision.models.resnet50(pretrained=True)
+for param in model.parameters():
+    param.requires_grad = False  # 行(A)
+
+model.fc = nn.Linear(2048, 2)
+optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="past-6" value="0"><span>(A)全面微調（Full Fine-Tuning）；</span></label>
 <label class="option"><input type="radio" name="past-6" value="1"><span>(B)零樣本學習（Zero-shot Learning）；</span></label>
 <label class="option"><input type="radio" name="past-6" value="2"><span>(C)特徵萃取（Feature Extraction）；</span></label>
@@ -743,7 +753,7 @@
       "source": "115-1",
       "q": "Q42",
       "topic": "特徵萃取",
-      "text": "觀察程式中行(A)將所有既有權重的梯度計算關閉，這在遷移學習中屬於哪一種標  準策略？",
+      "text": "觀察程式中行(A)將所有既有權重的梯度計算關閉，這在遷移學習中屬於哪一種標準策略？",
       "options": [
         "全面微調（Full Fine-Tuning）；",
         "零樣本學習（Zero-shot Learning）；",
