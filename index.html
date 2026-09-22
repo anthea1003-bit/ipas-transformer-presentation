@@ -558,10 +558,10 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <section class="slide" data-title="模擬題：10 題情境判斷" data-group="練習" aria-label="第 13 頁：模擬題：10 題情境判斷"><div class="shell">
 <header class="section-head"><span class="slide-id">13 / 14</span><h2>模擬題：10 題情境判斷</h2></header>
 <div class="content">
-<p><span class="mini-note">機率標示為讀書會主觀研判，非官方預測。</span></p>
+<p><span class="mini-note"></span></p>
 <div class="quiz" id="mock-quiz" data-kind="mock"><div class="quiz-toolbar"><nav class="question-nav" aria-label="模擬題題號"><button type="button" data-question="0" aria-label="第 1 題" aria-current="true">1</button><button type="button" data-question="1" aria-label="第 2 題" aria-current="false">2</button><button type="button" data-question="2" aria-label="第 3 題" aria-current="false">3</button><button type="button" data-question="3" aria-label="第 4 題" aria-current="false">4</button><button type="button" data-question="4" aria-label="第 5 題" aria-current="false">5</button><button type="button" data-question="5" aria-label="第 6 題" aria-current="false">6</button><button type="button" data-question="6" aria-label="第 7 題" aria-current="false">7</button><button type="button" data-question="7" aria-label="第 8 題" aria-current="false">8</button><button type="button" data-question="8" aria-label="第 9 題" aria-current="false">9</button><button type="button" data-question="9" aria-label="第 10 題" aria-current="false">10</button></nav><span class="mode-label" role="status" aria-live="polite">作答模式</span><button class="mode-toggle" type="button" aria-pressed="false">切換為解析模式</button><button class="reset" type="button">重新作答</button></div><p class="score" role="status" aria-live="polite">答對 <b class="score-correct">0</b> ／ 已答 <b class="score-total">0</b> ／ 正確率 <b class="score-rate">—</b></p>
 <article class="quiz-card" data-index="0" >
-<div class="question-meta"><strong>模擬 1 · 出題機率 🔴高</strong><span>1 / 10</span></div>
+<div class="question-meta"><strong>模擬 1</strong><span>1 / 10</span></div>
 <h3 class="question-text">某零售電商的客服系統收到顧客詢問「這個可以退嗎」，前文同時提到外套與背包。系統需要依對話內容判斷「這個」指的是哪件商品。由於商品出現的先後順序不固定，不能只選最近提到的商品。若使用 自注意力（Self-Attention），該用哪個機制找出相關資訊？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-0" value="0"><span>(A)將「這個」的 查詢向量（Query, Q） 與各詞的 值向量（Value, V） 比對相關程度，再整合各詞的 鍵向量（Key, K）</span></label>
 <label class="option"><input type="radio" name="mock-0" value="1"><span>(B)將「這個」的 Q 與各詞的 K 比對相關程度，再依相關程度整合 V</span></label>
@@ -569,7 +569,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-0" value="3"><span>(D)將各詞的 V 平均整合，讓每件商品在任何問題中都占相同比重</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：B</strong> · Q 表示要找的資訊，模型用 Q 對每個詞的 K 比對相關程度，再整合 V，以利用上下文（Context）判斷指涉對象。依《機器學習技術與運用學習指引》6703–6717、6728–6732 行，三種向量分工不同，自注意力能直接建立序列元素之間的關係。</p><p class="warning">⚠️ V 提供要整合的資訊；只看距離或平均分配權重，都沒有依問題比較相關程度。</p></div></details>
 </article><article class="quiz-card" data-index="1" hidden>
-<div class="question-meta"><strong>模擬 2 · 出題機率 🟢低</strong><span>2 / 10</span></div>
+<div class="question-meta"><strong>模擬 2</strong><span>2 / 10</span></div>
 <h3 class="question-text">某餐飲外送平台用 Transformer 讀取含餐點與飲料的訂單備註。測試時，「先加辣再去冰」與「先去冰再加辣」被判成同一句，檢查發現模型只收到詞嵌入（Word Embeddings）。團隊必須保留處理先後的差異，不能把兩筆備註合併處理。最合理的改善做法為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-1" value="0"><span>(A)增加注意力機制（Attention Mechanism）的頭數，讓不同頭自行從相同詞彙推回先後順序</span></label>
 <label class="option"><input type="radio" name="mock-1" value="1"><span>(B)加入層歸一化（Layer Normalization），利用特徵尺度的差異表示每個詞的位置</span></label>
@@ -577,7 +577,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-1" value="3"><span>(D)加入位置編碼（Positional Encoding），將位置資訊加到詞嵌入，補足注意力本身沒有的順序資訊</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：D</strong> · 兩筆備註使用相同詞彙，但先後順序不同，單靠注意力本身不能提供這項資訊。依《機器學習技術與運用學習指引》6770–6792 行，位置編碼把位置資訊加入詞嵌入，讓模型辨識序列順序。</p><p class="warning">⚠️ 增加頭數或穩定特徵尺度，都不能代替輸入中缺少的位置資訊。</p></div></details>
 </article><article class="quiz-card" data-index="2" hidden>
-<div class="question-meta"><strong>模擬 3 · 出題機率 🟡中</strong><span>3 / 10</span></div>
+<div class="question-meta"><strong>模擬 3</strong><span>3 / 10</span></div>
 <h3 class="question-text">某旅遊訂房平台要分析旅客評論，一則評論可能同時提到房價便宜、離車站遠與服務親切。團隊希望保留價格、地點及服務各自的評價關聯。系統必須在同一次分析中處理多種面向，不能只留下單一整體評分。採用多頭注意力（Multi-Head Attention）最主要的原因為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-2" value="0"><span>(A)讓模型從不同表示子空間（Representation Subspaces）同時捕捉多樣關聯，再整合各頭的結果</span></label>
 <label class="option"><input type="radio" name="mock-2" value="1"><span>(B)讓每個頭只記錄一個詞的位置，藉此取代所有位置編碼</span></label>
@@ -585,7 +585,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-2" value="3"><span>(D)讓各頭直接減少模型層數，以訓練較淺的模型取代多面向分析</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：A</strong> · 多頭注意力可從不同表示子空間，同時捕捉多種類型的關係，適合保留評論中的多樣關聯。依《機器學習技術與運用學習指引》6734–6766 行，各頭分別學習注意力模式，再整合結果；不表示每個頭必定固定對應一個業務面向。</p><p class="warning">⚠️ 「不同表示子空間」是關鍵，不是讓所有頭重複同一份結果。</p></div></details>
 </article><article class="quiz-card" data-index="3" hidden>
-<div class="question-meta"><strong>模擬 4 · 出題機率 🔴高</strong><span>4 / 10</span></div>
+<div class="question-meta"><strong>模擬 4</strong><span>4 / 10</span></div>
 <h3 class="question-text">某補教業者要在作文批改系統中標出離題段落。系統會讀取作文題目與完整段落，判斷段落是否仍在討論指定主題。這一階段只需理解前後文並分類（Classification），不需要代寫或續寫文章。選擇預訓練模型時，最合理的做法為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-3" value="0"><span>(A)選只用解碼器（Decoder）的模型，因為單向（自迴歸）預訓練專門用來同時讀取左右文</span></label>
 <label class="option"><input type="radio" name="mock-3" value="1"><span>(B)選只用編碼器（Encoder）的模型，並認定其預訓練任務只需預測下一個詞</span></label>
@@ -593,7 +593,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-3" value="3"><span>(D)選完整編碼器-解碼器（Encoder-Decoder）架構，並把是否能續寫長文當作離題判斷的唯一依據</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：C</strong> · 判斷段落是否離題屬於理解與分類任務，只用 Transformer 編碼器部分的 BERT 可利用雙向上下文表示。依《人工智慧技術與規劃學習指引》1571–1579 行及《機器學習技術與運用學習指引》6939–6947 行，遮蔽語言模型（MLM）是其預訓練任務之一，有助於語言理解。</p><p class="warning">⚠️ 本題要判斷內容是否離題，不能把續寫能力當作選模的唯一標準。</p></div></details>
 </article><article class="quiz-card" data-index="4" hidden>
-<div class="question-meta"><strong>模擬 5 · 出題機率 🔴高</strong><span>5 / 10</span></div>
+<div class="question-meta"><strong>模擬 5</strong><span>5 / 10</span></div>
 <h3 class="question-text">某遊戲公司要依玩家上一句話，自動續寫 NPC 的下一段對話。團隊以只用編碼器（Encoder）、採遮蔽語言模型（MLM）預訓練的模型測試，增加對話資料後仍無法穩定續寫。需求是依已出現的內容逐步生成新對話，不能只從既有句子中分類挑選。最合理的調整做法為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-4" value="0"><span>(A)保留原模型，只持續增加相同格式的資料，不必檢查架構與預訓練任務</span></label>
 <label class="option"><input type="radio" name="mock-4" value="1"><span>(B)改用只用解碼器（Decoder）、採單向（自迴歸）預訓練的模型，再調整到對話續寫任務</span></label>
@@ -601,7 +601,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-4" value="3"><span>(D)只替原模型增加分類輸出，將判斷對話類別視為完成新對話的生成</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：B</strong> · NPC 續寫需要依前文逐步生成，應先檢查模型架構與預訓練任務是否符合需求，不能只歸因於資料量。依《機器學習技術與運用學習指引》6951–6959 行，GPT 使用 Transformer 的解碼器部分及單向（自迴歸）預訓練，適合對話等生成任務。</p><p class="warning">⚠️ 分類輸出或更多資料，都不能直接補上原本未對應續寫的預訓練任務。</p></div></details>
 </article><article class="quiz-card" data-index="5" hidden>
-<div class="question-meta"><strong>模擬 6 · 出題機率 🔴高</strong><span>6 / 10</span></div>
+<div class="question-meta"><strong>模擬 6</strong><span>6 / 10</span></div>
 <h3 class="question-text">某農業團隊要讓預訓練模型適應病蟲害諮詢，全面微調（Full Fine-tuning）所需的 GPU 記憶體超出設備容量。改採 低秩自適應（LoRA） 後，模型仍漏掉部分處理步驟，GPU 記憶體也接近上限。團隊須在不明顯增加記憶體、保持 trainable 總參數不變的條件下改善表現。最合理的訓練與調整做法為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-5" value="0"><span>(A)凍結原權重，只訓練新增的低秩參數；降低 rank 並套用到更多層，保持 trainable 總參數不變</span></label>
 <label class="option"><input type="radio" name="mock-5" value="1"><span>(B)凍結原權重，只訓練新增的低秩參數；提高原有各層的 rank，並維持套用層數</span></label>
@@ -609,7 +609,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-5" value="3"><span>(D)凍結原權重，降低 rank 並減少套用層數；將空出的記憶體全部改用來增加批次大小</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：A</strong> · LoRA 凍結原權重，只訓練新增的低秩參數以適應新領域，低秩參數的做法見《人工智慧技術與規劃學習指引》1933–1951 行。本題延續 115-1 Q35（公告試題 398–405 行）的限制，選降低 rank、套用到更多層並保持 trainable 總參數不變，實際記憶體與回答品質仍須驗證。</p><p class="warning">⚠️ 提高 rank 或改全面微調會增加負擔；降低 rank 再增加批次大小，也沒有維持題目要求的參數配置。</p></div></details>
 </article><article class="quiz-card" data-index="6" hidden>
-<div class="question-meta"><strong>模擬 7 · 出題機率 🟡中</strong><span>7 / 10</span></div>
+<div class="question-meta"><strong>模擬 7</strong><span>7 / 10</span></div>
 <h3 class="question-text">某製造業團隊以設備維修手冊訓練 Transformer 模型，增加層數後，訓練結果開始大幅波動。檢查發現深層網路的梯度難以往前傳遞。團隊須保留目前深度，先改善梯度傳遞與訓練穩定性，不能直接刪除大半層數。最合理的做法為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-6" value="0"><span>(A)增加位置編碼的維度，以詞序資訊代替跨層梯度傳遞</span></label>
 <label class="option"><input type="radio" name="mock-6" value="1"><span>(B)增加多頭注意力的頭數，以更多表示子空間保證各層梯度穩定</span></label>
@@ -617,7 +617,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-6" value="3"><span>(D)使用殘差連接提供跨層梯度路徑，並以層歸一化穩定訓練</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：D</strong> · 殘差連接讓梯度有跨層傳遞的路徑，層歸一化則穩定特徵尺度，分別回應題目的兩項瓶頸。依《機器學習技術與運用學習指引》6804–6830 行，兩者有助於緩解深層網路的梯度問題與穩定訓練，但不保證所有訓練問題都會消失。</p><p class="warning">⚠️ 位置編碼處理順序，多頭注意力捕捉多樣關聯，兩者都不是這裡的主要修正機制。</p></div></details>
 </article><article class="quiz-card" data-index="7" hidden>
-<div class="question-meta"><strong>模擬 8 · 出題機率 🔴高</strong><span>8 / 10</span></div>
+<div class="question-meta"><strong>模擬 8</strong><span>8 / 10</span></div>
 <h3 class="question-text">某房仲公司要讓客服依最新物件狀態與公開法規資料回答購屋者的問題。這些資料每週更新，現有模型卻偶爾把已下架物件當成仍可看屋。公司不想每次更新都重新訓練模型，且回答須有當週資料作依據。最合理的做法為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-7" value="0"><span>(A)每週把新資料加入全面微調，讓最新資訊只保存在模型權重中</span></label>
 <label class="option"><input type="radio" name="mock-7" value="1"><span>(B)只調低生成時的隨機性，繼續依原模型權重回答當週物件狀態</span></label>
@@ -625,7 +625,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-7" value="3"><span>(D)只改用更多參數的預訓練模型，不更新資料來源便直接回答最新狀態</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：C</strong> · RAG 將外部知識檢索與語言生成結合，此情境可更新知識庫中的相關資料，讓回答引用新資料而不必每週重訓，機制見《人工智慧技術與規劃學習指引》1914–1929 行。這能減少因缺少最新依據而產生的幻覺（Hallucination），但仍須檢查檢索結果與回答是否一致。</p><p class="warning">⚠️ 降低生成的隨機性不會自動更新事實；RAG 也不保證完全消除幻覺。</p></div></details>
 </article><article class="quiz-card" data-index="8" hidden>
-<div class="question-meta"><strong>模擬 9 · 出題機率 🟡中</strong><span>9 / 10</span></div>
+<div class="question-meta"><strong>模擬 9</strong><span>9 / 10</span></div>
 <h3 class="question-text">某物流倉儲要用包裹照片辨識外箱是否破損，團隊希望改用 Transformer 處理影像。破損線索可能分散在同一張照片的不同區域。系統須保留各區域的影像與位置資訊，不能先把整張照片轉成一句文字描述。採用 Vision Transformer（ViT）時，最合理的做法為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-8" value="0"><span>(A)把影像切成固定大小的圖像塊（Patches），轉成帶有位置資訊的序列後送入 Transformer</span></label>
 <label class="option"><input type="radio" name="mock-8" value="1"><span>(B)把整張影像先轉成一個類別名稱，再以文字序列代替各區域的影像資訊</span></label>
@@ -633,7 +633,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 <label class="option"><input type="radio" name="mock-8" value="3"><span>(D)把影像切成圖像塊後移除殘差連接與層歸一化，因為 ViT 不會有深層網路的訓練問題</span></label></div></fieldset>
 <details><summary>展開答案與解析</summary><div class="answer-body"><p class="result"></p><p><strong>正確答案：A</strong> · ViT 把影像切成固定大小的圖像塊，再當作序列處理，做法見《機器學習技術與運用學習指引》6985–6993 行；位置資訊的作用見 6770–6792 行。改用 ViT 不表示深層網路的訓練問題消失，殘差連接與層歸一化的作用仍可參照同指引 6804–6830 行。</p><p class="warning">⚠️ 把圖像塊當序列不等於丟掉空間位置，也不能據此保證沒有深層網路的訓練問題。</p></div></details>
 </article><article class="quiz-card" data-index="9" hidden>
-<div class="question-meta"><strong>模擬 10 · 出題機率 🟢低</strong><span>10 / 10</span></div>
+<div class="question-meta"><strong>模擬 10</strong><span>10 / 10</span></div>
 <h3 class="question-text">某公部門要把數萬 token 的跨局處會議逐字稿整理成摘要。原始 Transformer 自注意力在處理全文時，運算時間過長且記憶體不足。設備資源不能增加，摘要又須涵蓋全文重點，不能直接刪掉後半段內容。最合理的模型調整做法為何？</h3>
 <fieldset aria-label="答案選項"><div class="options"><label class="option"><input type="radio" name="mock-9" value="0"><span>(A)保持全文所有 token 兩兩比較，並增加注意力頭數以降低總運算量</span></label>
 <label class="option"><input type="radio" name="mock-9" value="1"><span>(B)採用稀疏注意力（Sparse Attention）、局部注意力（Local Attention）或注意力近似計算，降低長序列的運算與記憶體需求</span></label>
@@ -656,274 +656,7 @@ optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-4)</code></pre>
 </main>
 <footer class="footer"><div class="controls"><span class="counter" aria-live="polite"><b id="page-current">01</b> / 14</span><button id="prev" aria-label="上一頁">←</button><button id="next" aria-label="下一頁">→</button></div></footer>
 <div class="progress" id="progress" style="--progress:7.142857%" aria-hidden="true"></div>
-<script id="quiz-data" type="application/json">
-{
-  "past": [
-    {
-      "source": "115-1",
-      "q": "Q3",
-      "topic": "Attention 矩陣維度",
-      "text": "某工程師在撰寫 Transformer 的 Attention 層時，需手動驗證矩陣維度是否相容。  輸入矩陣 Q 已攤平成形狀為(1, 10)，Query 投影權重矩陣 WQ 形狀為(10, 64)。執 行 Q x WQ 後輸出的形狀為何？",
-      "options": [
-        "(1, 64)；",
-        "(10, 10)；",
-        "(64, 1)；",
-        "維度不相容，無法相乘"
-      ],
-      "answer": 0,
-      "explanation": "中間數字相同、外面留下。",
-      "lines": "30–37"
-    },
-    {
-      "source": "115-1",
-      "q": "Q19",
-      "topic": "長距離依賴關係",
-      "text": "某團隊開發合約文件審查系統，需比對合約首頁的定義條款與第 20 頁的責任條  款是否一致。工程師初版採用雙向長短期記憶（Bidirectional LSTM），但發現長 文件的跨段落語義關聯捕捉效果不佳，且訓練時間隨文件長度明顯增加。改用 Transformer 架構後問題獲得改善，下列何者為最主要的原因？",
-      "options": [
-        "Transformer 參數量比 LSTM 少，因此訓練速度更快、不易過擬合；",
-        "Transformer 內建位置編碼，使模型天生理解文件的章節結構與段落順序；",
-        "LSTM 無法處理超過 512 個 token 的輸入，Transformer 無此硬性限制；",
-        "Transformer 的 Self-Attention 可讓任意 token 直接建立關聯，不受距離限制， 且運算可平行化"
-      ],
-      "answer": 3,
-      "explanation": "Self-Attention 讓任意 token 直接建立關聯，運算也可平行化。",
-      "lines": "222–231"
-    },
-    {
-      "source": "115-1",
-      "q": "Q21",
-      "topic": "模型量化",
-      "text": "某工程師將一個大型預訓練模型部署至資源受限的行動裝置，發現模型體積過大  且推論效率不足。為降低模型大小並提升推論速度，他將原本 32-bit 浮點數權重 轉換為 8-bit 整數。在不重新訓練模型的前提下，請問此過程稱為何？",
-      "options": [
-        "知識蒸餾（Knowledge Distillation）；",
-        "權重剪枝（Pruning）；",
-        "張量分解（Tensor Decomposition）；",
-        "模型量化（Quantization）"
-      ],
-      "answer": 3,
-      "explanation": "降低權重數值精度以縮小模型、改善推論效率，稱為模型量化。",
-      "lines": "250–257"
-    },
-    {
-      "source": "115-1",
-      "q": "Q22",
-      "topic": "RAG 檢索",
-      "text": "某工程師建置企業內部知識問答的 RAG 系統，上線後發現部分問題檢索結果與  查詢語意不符。分析後確認問題出在向量搜尋的語意匹配不準確。於檢索階段， 採取下列哪種方法最能直接改善此問題？",
-      "options": [
-        "將切片大小（Chunk Size）由 512tokens 縮小至 128tokens，以提升檢索精細度；",
-        "調整向量相似度閾值（Similarity Threshold），以過濾低相關檢索結果；",
-        "採用混合搜尋（Hybrid Search）：結合語意向量搜尋與關鍵字搜尋（BM25）， 並以 RRF（Reciprocal Rank Fusion）融合排序；",
-        "將檢索結果隨機洗牌（Shuffle）後回傳給 LLM，避免位置偏誤（Position Bias）"
-      ],
-      "answer": 2,
-      "explanation": "依本題條件與公告答案，選混合搜尋，結合語意與關鍵字線索。",
-      "lines": "258–266"
-    },
-    {
-      "source": "115-1",
-      "q": "Q23",
-      "topic": "BERT vs GPT",
-      "text": "某團隊開發法律文件生成系統，需根據合約前半段內容自動生成後半段條款。工  程師分別使用 BERT 與 GPT-2 進行微調，但發現 BERT 的生成效果明顯較差，且 即使增加訓練資料也無法改善。下列何者為最主要原因？",
-      "options": [
-        "BERT 缺乏法律領域知識，因此生成能力較差；",
-        "BERT 的分詞方式影響語意理解，導致生成效果不佳；",
-        "BERT 模型規模較小，因此生成能力不足；",
-        "BERT 無法根據前文逐步生成後續文字，較不適合此類任務"
-      ],
-      "answer": 3,
-      "explanation": "原始 BERT 的雙向上下文預訓練不以逐步續寫為設計核心；此類生成任務較適合 GPT。",
-      "lines": "267–274"
-    },
-    {
-      "source": "115-1",
-      "q": "Q35",
-      "topic": "LoRA 的資源取捨",
-      "text": "某團隊使用 LoRA 微調大型語言模型進行法律摘要任務，發現模型在複雜條款的  摘要上常出現內容遺漏，但 GPU \u986f\u5b58已接近上限。下列哪種調整方式最能在不 明顯增加記憶體使用的前提下改善模型表現？",
-      "options": [
-        "提高 LoRA rank 以增強模型表達能力；",
-        "改用完整微調（Full Fine-tuning）以學習更多細節；",
-        "降低 LoRA rank 以釋放記憶體並增加 Batch Size；",
-        "降低 LoRA rank 但套用到更多層，保持 trainable 總參數不變"
-      ],
-      "answer": 3,
-      "explanation": "公告選 D：調低 rank 並涵蓋更多層，保持 trainable 總參數不變；實際品質與GPU 記憶體仍需驗證。",
-      "lines": "398–405"
-    },
-    {
-      "source": "115-1",
-      "q": "Q42",
-      "topic": "特徵萃取",
-      "text": "觀察程式中行(A)將所有既有權重的梯度計算關閉，這在遷移學習中屬於哪一種標準策略？",
-      "options": [
-        "全面微調（Full Fine-Tuning）；",
-        "零樣本學習（Zero-shot Learning）；",
-        "特徵萃取（Feature Extraction）；",
-        "知識蒸餾（Knowledge Distillation）"
-      ],
-      "answer": 2,
-      "explanation": "凍結既有模型權重、把既有表示交給下游任務，屬於特徵萃取。",
-      "lines": "504–510"
-    },
-    {
-      "source": "114-2",
-      "q": "Q21",
-      "topic": "Multi-Head Attention",
-      "text": "某語音辨識系統開發團隊採用 Transformer 架構，為了讓模型能同時理解 語音片段中的發音特徵、語速變化與語意脈絡等多層次資訊，團隊在設計 中導入了多頭注意力（Multi-head Attention）機制。請問下列何者為此 機制的主要優點？",
-      "options": [
-        "減少模型參數量以降低訓練成本；",
-        "加速整體注意力計算過程；",
-        "從不同表示子空間（Representation Subspaces）同時捕捉多樣化關聯 資訊；",
-        "避免梯度消失（Gradient Vanishing）問題"
-      ],
-      "answer": 2,
-      "explanation": "多頭注意力從不同表示子空間，同時捕捉多樣化關聯資訊。",
-      "lines": "201–209"
-    }
-  ],
-  "mock": [
-    {
-      "text": "某零售電商的客服系統收到顧客詢問「這個可以退嗎」，前文同時提到外套與背包。系統需要依對話內容判斷「這個」指的是哪件商品。由於商品出現的先後順序不固定，不能只選最近提到的商品。若使用 自注意力（Self-Attention），該用哪個機制找出相關資訊？",
-      "options": [
-        "將「這個」的 查詢向量（Query, Q） 與各詞的 值向量（Value, V） 比對相關程度，再整合各詞的 鍵向量（Key, K）",
-        "將「這個」的 Q 與各詞的 K 比對相關程度，再依相關程度整合 V",
-        "只依各詞的 K 決定固定重要性，讓所有顧客問題使用相同權重",
-        "將各詞的 V 平均整合，讓每件商品在任何問題中都占相同比重"
-      ],
-      "answer": 1,
-      "probability": "🔴高",
-      "explanation": "Q 表示要找的資訊，模型用 Q 對每個詞的 K 比對相關程度，再整合 V，以利用上下文（Context）判斷指涉對象。依《機器學習技術與運用學習指引》6703–6717、6728–6732 行，三種向量分工不同，自注意力能直接建立序列元素之間的關係。",
-      "trap": "V 提供要整合的資訊；只看距離或平均分配權重，都沒有依問題比較相關程度。",
-      "sourceId": "Q1"
-    },
-    {
-      "text": "某餐飲外送平台用 Transformer 讀取含餐點與飲料的訂單備註。測試時，「先加辣再去冰」與「先去冰再加辣」被判成同一句，檢查發現模型只收到詞嵌入（Word Embeddings）。團隊必須保留處理先後的差異，不能把兩筆備註合併處理。最合理的改善做法為何？",
-      "options": [
-        "增加注意力機制（Attention Mechanism）的頭數，讓不同頭自行從相同詞彙推回先後順序",
-        "加入層歸一化（Layer Normalization），利用特徵尺度的差異表示每個詞的位置",
-        "只擴大詞彙表，讓相同詞彙在兩筆備註中自動帶有不同順序",
-        "加入位置編碼（Positional Encoding），將位置資訊加到詞嵌入，補足注意力本身沒有的順序資訊"
-      ],
-      "answer": 3,
-      "probability": "🟢低",
-      "explanation": "兩筆備註使用相同詞彙，但先後順序不同，單靠注意力本身不能提供這項資訊。依《機器學習技術與運用學習指引》6770–6792 行，位置編碼把位置資訊加入詞嵌入，讓模型辨識序列順序。",
-      "trap": "增加頭數或穩定特徵尺度，都不能代替輸入中缺少的位置資訊。",
-      "sourceId": "Q2"
-    },
-    {
-      "text": "某旅遊訂房平台要分析旅客評論，一則評論可能同時提到房價便宜、離車站遠與服務親切。團隊希望保留價格、地點及服務各自的評價關聯。系統必須在同一次分析中處理多種面向，不能只留下單一整體評分。採用多頭注意力（Multi-Head Attention）最主要的原因為何？",
-      "options": [
-        "讓模型從不同表示子空間（Representation Subspaces）同時捕捉多樣關聯，再整合各頭的結果",
-        "讓每個頭只記錄一個詞的位置，藉此取代所有位置編碼",
-        "讓每個頭使用完全相同的權重與關注結果，藉此增加評價面向",
-        "讓各頭直接減少模型層數，以訓練較淺的模型取代多面向分析"
-      ],
-      "answer": 0,
-      "probability": "🟡中",
-      "explanation": "多頭注意力可從不同表示子空間，同時捕捉多種類型的關係，適合保留評論中的多樣關聯。依《機器學習技術與運用學習指引》6734–6766 行，各頭分別學習注意力模式，再整合結果；不表示每個頭必定固定對應一個業務面向。",
-      "trap": "「不同表示子空間」是關鍵，不是讓所有頭重複同一份結果。",
-      "sourceId": "Q3"
-    },
-    {
-      "text": "某補教業者要在作文批改系統中標出離題段落。系統會讀取作文題目與完整段落，判斷段落是否仍在討論指定主題。這一階段只需理解前後文並分類（Classification），不需要代寫或續寫文章。選擇預訓練模型時，最合理的做法為何？",
-      "options": [
-        "選只用解碼器（Decoder）的模型，因為單向（自迴歸）預訓練專門用來同時讀取左右文",
-        "選只用編碼器（Encoder）的模型，並認定其預訓練任務只需預測下一個詞",
-        "選只用編碼器（Encoder）的模型，利用遮蔽語言模型（Masked Language Model, MLM）的雙向上下文預訓練，再調整為離題分類",
-        "選完整編碼器-解碼器（Encoder-Decoder）架構，並把是否能續寫長文當作離題判斷的唯一依據"
-      ],
-      "answer": 2,
-      "probability": "🔴高",
-      "explanation": "判斷段落是否離題屬於理解與分類任務，只用 Transformer 編碼器部分的 BERT 可利用雙向上下文表示。依《人工智慧技術與規劃學習指引》1571–1579 行及《機器學習技術與運用學習指引》6939–6947 行，遮蔽語言模型（MLM）是其預訓練任務之一，有助於語言理解。",
-      "trap": "本題要判斷內容是否離題，不能把續寫能力當作選模的唯一標準。",
-      "sourceId": "Q4"
-    },
-    {
-      "text": "某遊戲公司要依玩家上一句話，自動續寫 NPC 的下一段對話。團隊以只用編碼器（Encoder）、採遮蔽語言模型（MLM）預訓練的模型測試，增加對話資料後仍無法穩定續寫。需求是依已出現的內容逐步生成新對話，不能只從既有句子中分類挑選。最合理的調整做法為何？",
-      "options": [
-        "保留原模型，只持續增加相同格式的資料，不必檢查架構與預訓練任務",
-        "改用只用解碼器（Decoder）、採單向（自迴歸）預訓練的模型，再調整到對話續寫任務",
-        "只增加位置編碼的長度，便能把遮蔽語言模型（MLM）的任務直接改成逐步生成",
-        "只替原模型增加分類輸出，將判斷對話類別視為完成新對話的生成"
-      ],
-      "answer": 1,
-      "probability": "🔴高",
-      "explanation": "NPC 續寫需要依前文逐步生成，應先檢查模型架構與預訓練任務是否符合需求，不能只歸因於資料量。依《機器學習技術與運用學習指引》6951–6959 行，GPT 使用 Transformer 的解碼器部分及單向（自迴歸）預訓練，適合對話等生成任務。",
-      "trap": "分類輸出或更多資料，都不能直接補上原本未對應續寫的預訓練任務。",
-      "sourceId": "Q5"
-    },
-    {
-      "text": "某農業團隊要讓預訓練模型適應病蟲害諮詢，全面微調（Full Fine-tuning）所需的 GPU 記憶體超出設備容量。改採 低秩自適應（LoRA） 後，模型仍漏掉部分處理步驟，GPU 記憶體也接近上限。團隊須在不明顯增加記憶體、保持 trainable 總參數不變的條件下改善表現。最合理的訓練與調整做法為何？",
-      "options": [
-        "凍結原權重，只訓練新增的低秩參數；降低 rank 並套用到更多層，保持 trainable 總參數不變",
-        "凍結原權重，只訓練新增的低秩參數；提高原有各層的 rank，並維持套用層數",
-        "解除原權重的凍結，改為全面微調；沿用原本的批次大小（Batch Size）以保持記憶體用量",
-        "凍結原權重，降低 rank 並減少套用層數；將空出的記憶體全部改用來增加批次大小"
-      ],
-      "answer": 0,
-      "probability": "🔴高",
-      "explanation": "LoRA 凍結原權重，只訓練新增的低秩參數以適應新領域，低秩參數的做法見《人工智慧技術與規劃學習指引》1933–1951 行。本題延續 115-1 Q35（公告試題 398–405 行）的限制，選降低 rank、套用到更多層並保持 trainable 總參數不變，實際記憶體與回答品質仍須驗證。",
-      "trap": "提高 rank 或改全面微調會增加負擔；降低 rank 再增加批次大小，也沒有維持題目要求的參數配置。",
-      "sourceId": "Q6"
-    },
-    {
-      "text": "某製造業團隊以設備維修手冊訓練 Transformer 模型，增加層數後，訓練結果開始大幅波動。檢查發現深層網路的梯度難以往前傳遞。團隊須保留目前深度，先改善梯度傳遞與訓練穩定性，不能直接刪除大半層數。最合理的做法為何？",
-      "options": [
-        "增加位置編碼的維度，以詞序資訊代替跨層梯度傳遞",
-        "增加多頭注意力的頭數，以更多表示子空間保證各層梯度穩定",
-        "移除殘差連接（Residual Connection）並提高學習率（Learning Rate），讓每層只依自己的輸出更新",
-        "使用殘差連接提供跨層梯度路徑，並以層歸一化穩定訓練"
-      ],
-      "answer": 3,
-      "probability": "🟡中",
-      "explanation": "殘差連接讓梯度有跨層傳遞的路徑，層歸一化則穩定特徵尺度，分別回應題目的兩項瓶頸。依《機器學習技術與運用學習指引》6804–6830 行，兩者有助於緩解深層網路的梯度問題與穩定訓練，但不保證所有訓練問題都會消失。",
-      "trap": "位置編碼處理順序，多頭注意力捕捉多樣關聯，兩者都不是這裡的主要修正機制。",
-      "sourceId": "Q8"
-    },
-    {
-      "text": "某房仲公司要讓客服依最新物件狀態與公開法規資料回答購屋者的問題。這些資料每週更新，現有模型卻偶爾把已下架物件當成仍可看屋。公司不想每次更新都重新訓練模型，且回答須有當週資料作依據。最合理的做法為何？",
-      "options": [
-        "每週把新資料加入全面微調，讓最新資訊只保存在模型權重中",
-        "只調低生成時的隨機性，繼續依原模型權重回答當週物件狀態",
-        "採用檢索增強生成（RAG），更新知識庫中的相關資料，回答前先檢索並提供給模型",
-        "只改用更多參數的預訓練模型，不更新資料來源便直接回答最新狀態"
-      ],
-      "answer": 2,
-      "probability": "🔴高",
-      "explanation": "RAG 將外部知識檢索與語言生成結合，此情境可更新知識庫中的相關資料，讓回答引用新資料而不必每週重訓，機制見《人工智慧技術與規劃學習指引》1914–1929 行。這能減少因缺少最新依據而產生的幻覺（Hallucination），但仍須檢查檢索結果與回答是否一致。",
-      "trap": "降低生成的隨機性不會自動更新事實；RAG 也不保證完全消除幻覺。",
-      "sourceId": "Q10"
-    },
-    {
-      "text": "某物流倉儲要用包裹照片辨識外箱是否破損，團隊希望改用 Transformer 處理影像。破損線索可能分散在同一張照片的不同區域。系統須保留各區域的影像與位置資訊，不能先把整張照片轉成一句文字描述。採用 Vision Transformer（ViT）時，最合理的做法為何？",
-      "options": [
-        "把影像切成固定大小的圖像塊（Patches），轉成帶有位置資訊的序列後送入 Transformer",
-        "把整張影像先轉成一個類別名稱，再以文字序列代替各區域的影像資訊",
-        "把圖像塊隨機重排並刪除位置資訊，僅靠注意力還原原本的空間位置",
-        "把影像切成圖像塊後移除殘差連接與層歸一化，因為 ViT 不會有深層網路的訓練問題"
-      ],
-      "answer": 0,
-      "probability": "🟡中",
-      "explanation": "ViT 把影像切成固定大小的圖像塊，再當作序列處理，做法見《機器學習技術與運用學習指引》6985–6993 行；位置資訊的作用見 6770–6792 行。改用 ViT 不表示深層網路的訓練問題消失，殘差連接與層歸一化的作用仍可參照同指引 6804–6830 行。",
-      "trap": "把圖像塊當序列不等於丟掉空間位置，也不能據此保證沒有深層網路的訓練問題。",
-      "sourceId": "新增 ViT"
-    },
-    {
-      "text": "某公部門要把數萬 token 的跨局處會議逐字稿整理成摘要。原始 Transformer 自注意力在處理全文時，運算時間過長且記憶體不足。設備資源不能增加，摘要又須涵蓋全文重點，不能直接刪掉後半段內容。最合理的模型調整做法為何？",
-      "options": [
-        "保持全文所有 token 兩兩比較，並增加注意力頭數以降低總運算量",
-        "採用稀疏注意力（Sparse Attention）、局部注意力（Local Attention）或注意力近似計算，降低長序列的運算與記憶體需求",
-        "只刪除位置編碼，保留所有 token 兩兩比較，就能消除長序列的主要成本",
-        "改用單向（自迴歸）預訓練，但保留全文 token 兩兩比較的計算，便不再受長度影響"
-      ],
-      "answer": 1,
-      "probability": "🟢低",
-      "explanation": "瓶頸在自注意力處理大量 token 之間的關係，應調整注意力計算方式，而不是刪除後半段會議內容。依《機器學習技術與運用學習指引》7000–7016 行，稀疏注意力、局部注意力或注意力近似計算可降低長序列的運算與記憶體消耗，仍須驗證全文摘要品質。",
-      "trap": "改變預訓練任務不等於降低全文 token 兩兩比較的成本；減少連結時仍要檢查跨段重點有沒有遺漏。",
-      "sourceId": "新增 長序列"
-    }
-  ]
-}
-</script>
+<script id="quiz-data" type="application/json">{"past": [{"source": "115-1", "q": "Q3", "topic": "Attention 矩陣維度", "text": "某工程師在撰寫 Transformer 的 Attention 層時，需手動驗證矩陣維度是否相容。  輸入矩陣 Q 已攤平成形狀為(1, 10)，Query 投影權重矩陣 WQ 形狀為(10, 64)。執 行 Q x WQ 後輸出的形狀為何？", "options": ["(1, 64)；", "(10, 10)；", "(64, 1)；", "維度不相容，無法相乘"], "answer": 0, "explanation": "中間數字相同、外面留下。", "lines": "30–37"}, {"source": "115-1", "q": "Q19", "topic": "長距離依賴關係", "text": "某團隊開發合約文件審查系統，需比對合約首頁的定義條款與第 20 頁的責任條  款是否一致。工程師初版採用雙向長短期記憶（Bidirectional LSTM），但發現長 文件的跨段落語義關聯捕捉效果不佳，且訓練時間隨文件長度明顯增加。改用 Transformer 架構後問題獲得改善，下列何者為最主要的原因？", "options": ["Transformer 參數量比 LSTM 少，因此訓練速度更快、不易過擬合；", "Transformer 內建位置編碼，使模型天生理解文件的章節結構與段落順序；", "LSTM 無法處理超過 512 個 token 的輸入，Transformer 無此硬性限制；", "Transformer 的 Self-Attention 可讓任意 token 直接建立關聯，不受距離限制， 且運算可平行化"], "answer": 3, "explanation": "Self-Attention 讓任意 token 直接建立關聯，運算也可平行化。", "lines": "222–231"}, {"source": "115-1", "q": "Q21", "topic": "模型量化", "text": "某工程師將一個大型預訓練模型部署至資源受限的行動裝置，發現模型體積過大  且推論效率不足。為降低模型大小並提升推論速度，他將原本 32-bit 浮點數權重 轉換為 8-bit 整數。在不重新訓練模型的前提下，請問此過程稱為何？", "options": ["知識蒸餾（Knowledge Distillation）；", "權重剪枝（Pruning）；", "張量分解（Tensor Decomposition）；", "模型量化（Quantization）"], "answer": 3, "explanation": "降低權重數值精度以縮小模型、改善推論效率，稱為模型量化。", "lines": "250–257"}, {"source": "115-1", "q": "Q22", "topic": "RAG 檢索", "text": "某工程師建置企業內部知識問答的 RAG 系統，上線後發現部分問題檢索結果與  查詢語意不符。分析後確認問題出在向量搜尋的語意匹配不準確。於檢索階段， 採取下列哪種方法最能直接改善此問題？", "options": ["將切片大小（Chunk Size）由 512tokens 縮小至 128tokens，以提升檢索精細度；", "調整向量相似度閾值（Similarity Threshold），以過濾低相關檢索結果；", "採用混合搜尋（Hybrid Search）：結合語意向量搜尋與關鍵字搜尋（BM25）， 並以 RRF（Reciprocal Rank Fusion）融合排序；", "將檢索結果隨機洗牌（Shuffle）後回傳給 LLM，避免位置偏誤（Position Bias）"], "answer": 2, "explanation": "依本題條件與公告答案，選混合搜尋，結合語意與關鍵字線索。", "lines": "258–266"}, {"source": "115-1", "q": "Q23", "topic": "BERT vs GPT", "text": "某團隊開發法律文件生成系統，需根據合約前半段內容自動生成後半段條款。工  程師分別使用 BERT 與 GPT-2 進行微調，但發現 BERT 的生成效果明顯較差，且 即使增加訓練資料也無法改善。下列何者為最主要原因？", "options": ["BERT 缺乏法律領域知識，因此生成能力較差；", "BERT 的分詞方式影響語意理解，導致生成效果不佳；", "BERT 模型規模較小，因此生成能力不足；", "BERT 無法根據前文逐步生成後續文字，較不適合此類任務"], "answer": 3, "explanation": "原始 BERT 的雙向上下文預訓練不以逐步續寫為設計核心；此類生成任務較適合 GPT。", "lines": "267–274"}, {"source": "115-1", "q": "Q35", "topic": "LoRA 的資源取捨", "text": "某團隊使用 LoRA 微調大型語言模型進行法律摘要任務，發現模型在複雜條款的  摘要上常出現內容遺漏，但 GPU 顯存已接近上限。下列哪種調整方式最能在不 明顯增加記憶體使用的前提下改善模型表現？", "options": ["提高 LoRA rank 以增強模型表達能力；", "改用完整微調（Full Fine-tuning）以學習更多細節；", "降低 LoRA rank 以釋放記憶體並增加 Batch Size；", "降低 LoRA rank 但套用到更多層，保持 trainable 總參數不變"], "answer": 3, "explanation": "公告選 D：調低 rank 並涵蓋更多層，保持 trainable 總參數不變；實際品質與GPU 記憶體仍需驗證。", "lines": "398–405"}, {"source": "115-1", "q": "Q42", "topic": "特徵萃取", "text": "觀察程式中行(A)將所有既有權重的梯度計算關閉，這在遷移學習中屬於哪一種標準策略？", "options": ["全面微調（Full Fine-Tuning）；", "零樣本學習（Zero-shot Learning）；", "特徵萃取（Feature Extraction）；", "知識蒸餾（Knowledge Distillation）"], "answer": 2, "explanation": "凍結既有模型權重、把既有表示交給下游任務，屬於特徵萃取。", "lines": "504–510"}, {"source": "114-2", "q": "Q21", "topic": "Multi-Head Attention", "text": "某語音辨識系統開發團隊採用 Transformer 架構，為了讓模型能同時理解 語音片段中的發音特徵、語速變化與語意脈絡等多層次資訊，團隊在設計 中導入了多頭注意力（Multi-head Attention）機制。請問下列何者為此 機制的主要優點？", "options": ["減少模型參數量以降低訓練成本；", "加速整體注意力計算過程；", "從不同表示子空間（Representation Subspaces）同時捕捉多樣化關聯 資訊；", "避免梯度消失（Gradient Vanishing）問題"], "answer": 2, "explanation": "多頭注意力從不同表示子空間，同時捕捉多樣化關聯資訊。", "lines": "201–209"}], "mock": [{"text": "某零售電商的客服系統收到顧客詢問「這個可以退嗎」，前文同時提到外套與背包。系統需要依對話內容判斷「這個」指的是哪件商品。由於商品出現的先後順序不固定，不能只選最近提到的商品。若使用 自注意力（Self-Attention），該用哪個機制找出相關資訊？", "options": ["將「這個」的 查詢向量（Query, Q） 與各詞的 值向量（Value, V） 比對相關程度，再整合各詞的 鍵向量（Key, K）", "將「這個」的 Q 與各詞的 K 比對相關程度，再依相關程度整合 V", "只依各詞的 K 決定固定重要性，讓所有顧客問題使用相同權重", "將各詞的 V 平均整合，讓每件商品在任何問題中都占相同比重"], "answer": 1, "explanation": "Q 表示要找的資訊，模型用 Q 對每個詞的 K 比對相關程度，再整合 V，以利用上下文（Context）判斷指涉對象。依《機器學習技術與運用學習指引》6703–6717、6728–6732 行，三種向量分工不同，自注意力能直接建立序列元素之間的關係。", "trap": "V 提供要整合的資訊；只看距離或平均分配權重，都沒有依問題比較相關程度。", "sourceId": "Q1"}, {"text": "某餐飲外送平台用 Transformer 讀取含餐點與飲料的訂單備註。測試時，「先加辣再去冰」與「先去冰再加辣」被判成同一句，檢查發現模型只收到詞嵌入（Word Embeddings）。團隊必須保留處理先後的差異，不能把兩筆備註合併處理。最合理的改善做法為何？", "options": ["增加注意力機制（Attention Mechanism）的頭數，讓不同頭自行從相同詞彙推回先後順序", "加入層歸一化（Layer Normalization），利用特徵尺度的差異表示每個詞的位置", "只擴大詞彙表，讓相同詞彙在兩筆備註中自動帶有不同順序", "加入位置編碼（Positional Encoding），將位置資訊加到詞嵌入，補足注意力本身沒有的順序資訊"], "answer": 3, "explanation": "兩筆備註使用相同詞彙，但先後順序不同，單靠注意力本身不能提供這項資訊。依《機器學習技術與運用學習指引》6770–6792 行，位置編碼把位置資訊加入詞嵌入，讓模型辨識序列順序。", "trap": "增加頭數或穩定特徵尺度，都不能代替輸入中缺少的位置資訊。", "sourceId": "Q2"}, {"text": "某旅遊訂房平台要分析旅客評論，一則評論可能同時提到房價便宜、離車站遠與服務親切。團隊希望保留價格、地點及服務各自的評價關聯。系統必須在同一次分析中處理多種面向，不能只留下單一整體評分。採用多頭注意力（Multi-Head Attention）最主要的原因為何？", "options": ["讓模型從不同表示子空間（Representation Subspaces）同時捕捉多樣關聯，再整合各頭的結果", "讓每個頭只記錄一個詞的位置，藉此取代所有位置編碼", "讓每個頭使用完全相同的權重與關注結果，藉此增加評價面向", "讓各頭直接減少模型層數，以訓練較淺的模型取代多面向分析"], "answer": 0, "explanation": "多頭注意力可從不同表示子空間，同時捕捉多種類型的關係，適合保留評論中的多樣關聯。依《機器學習技術與運用學習指引》6734–6766 行，各頭分別學習注意力模式，再整合結果；不表示每個頭必定固定對應一個業務面向。", "trap": "「不同表示子空間」是關鍵，不是讓所有頭重複同一份結果。", "sourceId": "Q3"}, {"text": "某補教業者要在作文批改系統中標出離題段落。系統會讀取作文題目與完整段落，判斷段落是否仍在討論指定主題。這一階段只需理解前後文並分類（Classification），不需要代寫或續寫文章。選擇預訓練模型時，最合理的做法為何？", "options": ["選只用解碼器（Decoder）的模型，因為單向（自迴歸）預訓練專門用來同時讀取左右文", "選只用編碼器（Encoder）的模型，並認定其預訓練任務只需預測下一個詞", "選只用編碼器（Encoder）的模型，利用遮蔽語言模型（Masked Language Model, MLM）的雙向上下文預訓練，再調整為離題分類", "選完整編碼器-解碼器（Encoder-Decoder）架構，並把是否能續寫長文當作離題判斷的唯一依據"], "answer": 2, "explanation": "判斷段落是否離題屬於理解與分類任務，只用 Transformer 編碼器部分的 BERT 可利用雙向上下文表示。依《人工智慧技術與規劃學習指引》1571–1579 行及《機器學習技術與運用學習指引》6939–6947 行，遮蔽語言模型（MLM）是其預訓練任務之一，有助於語言理解。", "trap": "本題要判斷內容是否離題，不能把續寫能力當作選模的唯一標準。", "sourceId": "Q4"}, {"text": "某遊戲公司要依玩家上一句話，自動續寫 NPC 的下一段對話。團隊以只用編碼器（Encoder）、採遮蔽語言模型（MLM）預訓練的模型測試，增加對話資料後仍無法穩定續寫。需求是依已出現的內容逐步生成新對話，不能只從既有句子中分類挑選。最合理的調整做法為何？", "options": ["保留原模型，只持續增加相同格式的資料，不必檢查架構與預訓練任務", "改用只用解碼器（Decoder）、採單向（自迴歸）預訓練的模型，再調整到對話續寫任務", "只增加位置編碼的長度，便能把遮蔽語言模型（MLM）的任務直接改成逐步生成", "只替原模型增加分類輸出，將判斷對話類別視為完成新對話的生成"], "answer": 1, "explanation": "NPC 續寫需要依前文逐步生成，應先檢查模型架構與預訓練任務是否符合需求，不能只歸因於資料量。依《機器學習技術與運用學習指引》6951–6959 行，GPT 使用 Transformer 的解碼器部分及單向（自迴歸）預訓練，適合對話等生成任務。", "trap": "分類輸出或更多資料，都不能直接補上原本未對應續寫的預訓練任務。", "sourceId": "Q5"}, {"text": "某農業團隊要讓預訓練模型適應病蟲害諮詢，全面微調（Full Fine-tuning）所需的 GPU 記憶體超出設備容量。改採 低秩自適應（LoRA） 後，模型仍漏掉部分處理步驟，GPU 記憶體也接近上限。團隊須在不明顯增加記憶體、保持 trainable 總參數不變的條件下改善表現。最合理的訓練與調整做法為何？", "options": ["凍結原權重，只訓練新增的低秩參數；降低 rank 並套用到更多層，保持 trainable 總參數不變", "凍結原權重，只訓練新增的低秩參數；提高原有各層的 rank，並維持套用層數", "解除原權重的凍結，改為全面微調；沿用原本的批次大小（Batch Size）以保持記憶體用量", "凍結原權重，降低 rank 並減少套用層數；將空出的記憶體全部改用來增加批次大小"], "answer": 0, "explanation": "LoRA 凍結原權重，只訓練新增的低秩參數以適應新領域，低秩參數的做法見《人工智慧技術與規劃學習指引》1933–1951 行。本題延續 115-1 Q35（公告試題 398–405 行）的限制，選降低 rank、套用到更多層並保持 trainable 總參數不變，實際記憶體與回答品質仍須驗證。", "trap": "提高 rank 或改全面微調會增加負擔；降低 rank 再增加批次大小，也沒有維持題目要求的參數配置。", "sourceId": "Q6"}, {"text": "某製造業團隊以設備維修手冊訓練 Transformer 模型，增加層數後，訓練結果開始大幅波動。檢查發現深層網路的梯度難以往前傳遞。團隊須保留目前深度，先改善梯度傳遞與訓練穩定性，不能直接刪除大半層數。最合理的做法為何？", "options": ["增加位置編碼的維度，以詞序資訊代替跨層梯度傳遞", "增加多頭注意力的頭數，以更多表示子空間保證各層梯度穩定", "移除殘差連接（Residual Connection）並提高學習率（Learning Rate），讓每層只依自己的輸出更新", "使用殘差連接提供跨層梯度路徑，並以層歸一化穩定訓練"], "answer": 3, "explanation": "殘差連接讓梯度有跨層傳遞的路徑，層歸一化則穩定特徵尺度，分別回應題目的兩項瓶頸。依《機器學習技術與運用學習指引》6804–6830 行，兩者有助於緩解深層網路的梯度問題與穩定訓練，但不保證所有訓練問題都會消失。", "trap": "位置編碼處理順序，多頭注意力捕捉多樣關聯，兩者都不是這裡的主要修正機制。", "sourceId": "Q8"}, {"text": "某房仲公司要讓客服依最新物件狀態與公開法規資料回答購屋者的問題。這些資料每週更新，現有模型卻偶爾把已下架物件當成仍可看屋。公司不想每次更新都重新訓練模型，且回答須有當週資料作依據。最合理的做法為何？", "options": ["每週把新資料加入全面微調，讓最新資訊只保存在模型權重中", "只調低生成時的隨機性，繼續依原模型權重回答當週物件狀態", "採用檢索增強生成（RAG），更新知識庫中的相關資料，回答前先檢索並提供給模型", "只改用更多參數的預訓練模型，不更新資料來源便直接回答最新狀態"], "answer": 2, "explanation": "RAG 將外部知識檢索與語言生成結合，此情境可更新知識庫中的相關資料，讓回答引用新資料而不必每週重訓，機制見《人工智慧技術與規劃學習指引》1914–1929 行。這能減少因缺少最新依據而產生的幻覺（Hallucination），但仍須檢查檢索結果與回答是否一致。", "trap": "降低生成的隨機性不會自動更新事實；RAG 也不保證完全消除幻覺。", "sourceId": "Q10"}, {"text": "某物流倉儲要用包裹照片辨識外箱是否破損，團隊希望改用 Transformer 處理影像。破損線索可能分散在同一張照片的不同區域。系統須保留各區域的影像與位置資訊，不能先把整張照片轉成一句文字描述。採用 Vision Transformer（ViT）時，最合理的做法為何？", "options": ["把影像切成固定大小的圖像塊（Patches），轉成帶有位置資訊的序列後送入 Transformer", "把整張影像先轉成一個類別名稱，再以文字序列代替各區域的影像資訊", "把圖像塊隨機重排並刪除位置資訊，僅靠注意力還原原本的空間位置", "把影像切成圖像塊後移除殘差連接與層歸一化，因為 ViT 不會有深層網路的訓練問題"], "answer": 0, "explanation": "ViT 把影像切成固定大小的圖像塊，再當作序列處理，做法見《機器學習技術與運用學習指引》6985–6993 行；位置資訊的作用見 6770–6792 行。改用 ViT 不表示深層網路的訓練問題消失，殘差連接與層歸一化的作用仍可參照同指引 6804–6830 行。", "trap": "把圖像塊當序列不等於丟掉空間位置，也不能據此保證沒有深層網路的訓練問題。", "sourceId": "新增 ViT"}, {"text": "某公部門要把數萬 token 的跨局處會議逐字稿整理成摘要。原始 Transformer 自注意力在處理全文時，運算時間過長且記憶體不足。設備資源不能增加，摘要又須涵蓋全文重點，不能直接刪掉後半段內容。最合理的模型調整做法為何？", "options": ["保持全文所有 token 兩兩比較，並增加注意力頭數以降低總運算量", "採用稀疏注意力（Sparse Attention）、局部注意力（Local Attention）或注意力近似計算，降低長序列的運算與記憶體需求", "只刪除位置編碼，保留所有 token 兩兩比較，就能消除長序列的主要成本", "改用單向（自迴歸）預訓練，但保留全文 token 兩兩比較的計算，便不再受長度影響"], "answer": 1, "explanation": "瓶頸在自注意力處理大量 token 之間的關係，應調整注意力計算方式，而不是刪除後半段會議內容。依《機器學習技術與運用學習指引》7000–7016 行，稀疏注意力、局部注意力或注意力近似計算可降低長序列的運算與記憶體消耗，仍須驗證全文摘要品質。", "trap": "改變預訓練任務不等於降低全文 token 兩兩比較的成本；減少連結時仍要檢查跨段重點有沒有遺漏。", "sourceId": "新增 長序列"}]}</script>
 <script>
 // One table serves both desktop rows and mobile cards.
 const recapToggle=document.querySelector('#recap-toggle');
